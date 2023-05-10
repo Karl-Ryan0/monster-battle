@@ -45,6 +45,9 @@ function monsterAttack() {
 }
 
 function magicAttack () {
+    if (playerMP <= 0) {
+        console.log('You have mo magic power left!')
+    } else {
     let attackDamage = Math.floor(Math.random() * 10) + Math.floor(Math.random() * 10 ) + 5;
     if (attackDamage >= 15) {
         console.log("Critical hit!")
@@ -59,7 +62,7 @@ function magicAttack () {
         alert(`You beat the Dragon. Your last attack did ${attackDamage} damage`)
     } else {
     monsterAttack();
-    }
+    }}
 }
 
 function takePotion () {
