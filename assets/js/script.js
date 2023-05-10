@@ -21,8 +21,23 @@ function attack () {
     } else {
         dragonHP = dragonHP - attackDamage;
     }
-    console.log(`${attackDamage} damage done, ${dragonHP} HP remains.`);
+    console.log(`${attackDamage} damage done to enemy, ${dragonHP} HP remains.`);
     if (dragonHP <= 0 ) {
-        alert("You beat the Dragon. Your last attack did " + attackDamage + " damage")
+        alert(`You beat the Dragon. Your last attack did ${attackDamage} damage`)
+    }
+    monsterAttack();
+}
+
+function monsterAttack() {
+    let attackDamage = Math.floor(Math.random() * 10) + Math.floor(Math.random() * 10 );
+    if (attackDamage <= 5) {
+        console.log("Enemy missed!")
+        attackDamage = 0;
+    } else {
+        playerHP = playerHP - attackDamage;
+    }
+    console.log(`${attackDamage} damage done to player, ${playerHP} HP remains.`);
+    if (playerHP <= 0 ) {
+        alert(`You Died. Last attack did ${attackDamage} damage`)
     }
 }
