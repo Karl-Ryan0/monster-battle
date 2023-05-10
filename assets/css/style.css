@@ -20,7 +20,7 @@ p {
     font-weight: bold;
 }
 
-#button {
+.button {
 font-size: large;
 font-weight: bold;
 color: blue;
