@@ -5,11 +5,6 @@ var vampireHP = 100;
 var demonHP = 100;
 var potion = 3;
 
-
-function replace () {
-    document.getElementById('content').innerHTML = "This is the replacement text";
-}
-
 let attackButton = document.getElementById('attackButton');
 attackButton.addEventListener('click', attack);
 
@@ -17,7 +12,7 @@ let magicButton = document.getElementById('magicButton');
 magicButton.addEventListener('click', magicAttack);
 
 let potionButton = document.getElementById('potionButton');
-potionButton.addEventListener('click', potion);
+potionButton.addEventListener('click', takePotion);
 
 function attack () {
     let attackDamage = Math.floor(Math.random() * 10) + Math.floor(Math.random() * 10 );
@@ -67,7 +62,7 @@ function magicAttack () {
     }
 }
 
-function potion () {
+function takePotion () {
     if (potion > 0) {
         console.log(`You regain 20 points of health`);
         playerHP = playerHP + 20;
