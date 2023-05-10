@@ -69,7 +69,7 @@ function magicAttack () {
 
 function potion () {
     if (potion > 0) {
-        console.log(`You regain ${20} points of health`);
+        console.log(`You regain 20 points of health`);
         playerHP = playerHP + 20;
         potion --;
         monsterAttack();
