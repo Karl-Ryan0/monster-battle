@@ -31,7 +31,7 @@ let rollTheDice = document.getElementById('rollTheDice');
 rollTheDice.addEventListener('click', rollTheDiceStats);
 
 function attack () {
-    let attackDamage = Math.floor(Math.random() * 10 + 1) + player.attackPower;
+    let attackDamage = Math.floor(Math.random() * 10 + 1) + player.attackPower - dragon.defence;
     if (Math.floor(Math.random() * 10 < 2)) {
         console.log("you missed!")
         attackDamage = 0;
