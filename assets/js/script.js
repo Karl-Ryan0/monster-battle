@@ -2,6 +2,7 @@ var player = {
     HP:100,
     MP:100,
     attackPower:6,
+    maxHP: 100,
     magicPower:8,
     defence:6,
 }
@@ -82,13 +83,13 @@ function magicAttack () {
 }
 
 function takePotion () {
-    if (player.HP === 100){
+    if (player.HP === player.maxHP){
         console.log('You have full HP!')
-    } else if (player.HP >= 80) {
-        let differenceHP = 100 - player.HP;
+    } else if (player.maxHP - player.HP <= 20) {
+        let differenceHP = player.maxHP - player.HP;
         potion--;
         console.log(`You regain ${differenceHP} points of health`)
-        player.HP = 100,
+        player.HP = player.maxHP,
         monsterAttack();
     } else if (potion > 0) {
         console.log("You regain 20 points of health");
@@ -104,6 +105,7 @@ function rollTheDiceStats(){
     console.log(player);
     let dice = Math.floor(Math.random() * 6 + 1);
     player.HP += dice * 10,
+    player.maxHP = player.HP;
     player.MP += dice;
     player.attackPower += dice;
     player.magicPower += dice;
