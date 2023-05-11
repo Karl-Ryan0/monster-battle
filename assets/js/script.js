@@ -27,16 +27,19 @@ magicButton.addEventListener('click', magicAttack);
 let potionButton = document.getElementById('potionButton');
 potionButton.addEventListener('click', takePotion);
 
+let rollTheDice = document.getElementById('rollTheDice');
+rollTheDice.addEventListener('click', rollTheDiceStats);
+
 function attack () {
-    let attackDamage = Math.floor(Math.random() * 10) + Math.floor(Math.random() * 10 );
-    if (attackDamage <= 5) {
+    let attackDamage = Math.floor(Math.random() * 10 + 1) + player.attackPower;
+    if (Math.floor(Math.random() * 10 < 2)) {
         console.log("you missed!")
         attackDamage = 0;
     } else {
-        dragonHP = dragonHP - attackDamage;
+        dragon.HP = dragon.HP - attackDamage;
     }
-    console.log(`${attackDamage} Attack damage done to enemy, ${dragonHP} HP remains.`);
-    if (dragonHP <= 0 ) {
+    console.log(`${attackDamage} Attack damage done to enemy, ${dragon.HP} HP remains.`);
+    if (dragon.HP <= 0 ) {
         alert(`You beat the Dragon. Your last attack did ${attackDamage} damage`)
     } else {
     monsterAttack();
@@ -49,29 +52,29 @@ function monsterAttack() {
         console.log("Enemy missed!")
         attackDamage = 0;
     } else {
-        playerHP = playerHP - attackDamage;
+        player.HP = player.HP - attackDamage;
     }
-    console.log(`${attackDamage} damage done to player, ${playerHP} HP remains.`);
-    if (playerHP <= 0 ) {
+    console.log(`${attackDamage} damage done to player, ${player.HP} HP remains.`);
+    if (player.HP <= 0 ) {
         alert(`You Died. Last attack did ${attackDamage} damage`)
     }
 }
 
 function magicAttack () {
-    if (playerMP <= 0) {
+    if (player.MP <= 0) {
         console.log('You have mo magic power left!')
     } else {
     let attackDamage = Math.floor(Math.random() * 10) + Math.floor(Math.random() * 10 ) + 5;
     if (attackDamage >= 15) {
         console.log("Critical hit!")
         attackDamage = attackDamage + 20;
-        dragonHP = dragonHP - attackDamage;
+        dragon.HP = dragon.HP - attackDamage;
     } else {
-        dragonHP = dragonHP - attackDamage;
+        dragon.HP = dragon.HP - attackDamage;
     }
-    playerMP = playerMP - 10;
-    console.log(`${attackDamage} Magic damage done to enemy, ${dragonHP} HP remains. You have ${playerMP} MP remaining.`);
-    if (dragonHP <= 0 ) {
+    player.MP = player.MP - 10;
+    console.log(`${attackDamage} Magic damage done to enemy, ${dragon.HP} HP remains. You have ${player.MP} MP remaining.`);
+    if (dragon.HP <= 0 ) {
         alert(`You beat the Dragon. Your last attack did ${attackDamage} damage`)
     } else {
     monsterAttack();
@@ -79,17 +82,17 @@ function magicAttack () {
 }
 
 function takePotion () {
-    if (playerHP === 100){
+    if (player.HP === 100){
         console.log('You have full HP!')
-    } else if (playerHP >= 80) {
-        let differenceHP = 100 - playerHP;
+    } else if (player.HP >= 80) {
+        let differenceHP = 100 - player.HP;
         potion--;
         console.log(`You regain ${differenceHP} points of health`)
-        playerHP = 100,
+        player.HP = 100,
         monsterAttack();
     } else if (potion > 0) {
         console.log("You regain 20 points of health");
-        playerHP = playerHP + 20;
+        player.HP = player.HP + 20;
         potion--;
         monsterAttack();
     } else {
