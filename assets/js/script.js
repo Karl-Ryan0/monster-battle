@@ -68,12 +68,16 @@ function magicAttack () {
 function takePotion () {
     if (playerHP === 100){
         console.log('You have full HP!')
-    } else if (playerHP >= 90) {
-        playerHP = 100;
+    } else if (playerHP >= 80) {
+        let differenceHP = 100 - playerHP;
+        potion--;
+        console.log(`You regain ${differenceHP} points of health`)
+        playerHP = 100,
+        monsterAttack();
     } else if (potion > 0) {
-        console.log(`You regain 20 points of health`);
+        console.log("You regain 20 points of health");
         playerHP = playerHP + 20;
-        potion --;
+        potion--;
         monsterAttack();
     } else {
         console.log('You have no potions left!')
