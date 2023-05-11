@@ -48,12 +48,23 @@ function attack () {
 }
 
 function monsterAttack() {
-    let attackDamage = Math.floor(Math.random() * 10) + Math.floor(Math.random() * 10 );
-    if (attackDamage <= 5) {
+    let attackDamage = Math.floor(Math.random() * 10) + dragon.attackPower;
+    let attackType = Math.floor(Math.random() * 3);
+    if (Math.floor(Math.random() * 10 < 2)) {
         console.log("Enemy missed!")
         attackDamage = 0;
     } else {
-        player.HP = player.HP - attackDamage;
+        if (attackType === 0){
+            console.log("Dragon breaths fire!");
+            attackDamage = attackDamage + 20;
+        } else if (attackType === 1){
+            console.log("Dragon casts magic!");
+            attackDamage = attackDamage + 15;
+            dragon.MP = dragon.MP - 10;
+        } else {
+            console.log("Dragon attacks!");
+        }
+        player.HP = player.HP - (attackDamage - player.defence);
     }
     console.log(`${attackDamage} damage done to player, ${player.HP} HP remains.`);
     if (player.HP <= 0 ) {
