@@ -1,6 +1,19 @@
-var playerHP = 100;
-var playerMP = 100;
-var dragonHP = 100;
+var player = {
+    HP:100,
+    MP:100,
+    attackPower:6,
+    magicPower:8,
+    defence:6,
+}
+
+var dragon = {
+    HP:130,
+    MP:70,
+    attackPower:10,
+    magicPower:7,
+    defence:7,
+}
+
 var vampireHP = 100;
 var demonHP = 100;
 var potion = 3;
@@ -82,4 +95,15 @@ function takePotion () {
     } else {
         console.log('You have no potions left!')
     }
+}
+
+function rollTheDiceStats(){
+    console.log(player);
+    let dice = Math.floor(Math.random() * 6 + 1);
+    player.HP += dice * 10,
+    player.MP += dice;
+    player.attackPower += dice;
+    player.magicPower += dice;
+    player.defence += dice;
+    console.log(player);
 }
