@@ -64,8 +64,8 @@ function magicAttack () {
     if (player.MP <= 0) {
         console.log('You have mo magic power left!')
     } else {
-    let attackDamage = Math.floor(Math.random() * 10) + Math.floor(Math.random() * 10 ) + 5;
-    if (attackDamage >= 15) {
+    let attackDamage = Math.floor(Math.random() * 10 + 1) + player.magicPower;;
+    if (Math.floor(Math.random() * 10 < 2)) {
         console.log("Critical hit!")
         attackDamage = attackDamage + 20;
         dragon.HP = dragon.HP - attackDamage;
