@@ -19,6 +19,8 @@ var vampireHP = 100;
 var demonHP = 100;
 var potion = 3;
 
+const music = document.getElementById('music');
+
 let attackButton = document.getElementById('attackButton');
 attackButton.addEventListener('click', attack);
 
@@ -122,4 +124,5 @@ function rollTheDiceStats(){
     player.magicPower += dice;
     player.defence += dice;
     console.log(player);
+    music.play();
 }
