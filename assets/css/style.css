@@ -33,6 +33,14 @@ border-radius: 30px;
     visibility: hidden;
 }
 
+img {
+    margin-top: 10%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+}
+
 /*@media screen and (min-width: 750px) {
     .game {
         margin: 15% 5% 15% 5%;

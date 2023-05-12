@@ -128,6 +128,9 @@ function rollTheDiceStats(){
     player.defence += dice;
     console.log(`You rolled a ${dice}! Your stats have increased.`);
     document.getElementById("rollTheDice").style.visibility = "hidden";
+    document.getElementById("attackButton").style.visibility = "visible";
+    document.getElementById("magicButton").style.visibility = "visible";
+    document.getElementById("potionButton").style.visibility = "visible";
 }
 
 function getStarted() {
