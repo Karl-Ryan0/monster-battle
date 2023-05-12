@@ -33,6 +33,9 @@ potionButton.addEventListener('click', takePotion);
 let rollTheDice = document.getElementById('rollTheDice');
 rollTheDice.addEventListener('click', rollTheDiceStats);
 
+let getStartedButton = document.getElementById('getStarted');
+getStartedButton.addEventListener('click', getStarted);
+
 function attack () {
     let attackDamage = Math.floor(Math.random() * 10 + 1) + player.attackPower - dragon.defence;
     if (Math.floor(Math.random() * 10 < 2)) {
@@ -123,6 +126,12 @@ function rollTheDiceStats(){
     player.attackPower += dice;
     player.magicPower += dice;
     player.defence += dice;
-    console.log(player);
+    console.log(`You rolled a ${dice}! Your stats have increased.`);
+    document.getElementById("rollTheDice").style.visibility = "hidden";
+}
+
+function getStarted() {
     music.play();
+    document.getElementById("getStarted").style.visibility = "hidden";
+    document.getElementById("rollTheDice").style.visibility = "visible";
 }
