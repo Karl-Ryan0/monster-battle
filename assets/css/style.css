@@ -1,6 +1,6 @@
-html {
-    background: url(../images/background.png);
-    background-size: cover;
+body {
+    background: url(../images/background-small.png);
+    background-size: 100vw 100vh;
 }
 
 #game {
@@ -48,6 +48,14 @@ img {
     padding: 7px;
     margin: 0;
 }
+
+@media screen and (min-width: 650px) {
+    body {
+        background: url(../images/background.png);
+        background-size: cover;
+    }
+}
+
 /*@media screen and (min-width: 750px) {
     .game {
         margin: 15% 5% 15% 5%;
