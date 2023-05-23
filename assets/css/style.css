@@ -16,7 +16,6 @@ html {
 p {
     color: black;
     opacity: 1;
-    font-size: large;
     font-weight: bold;
 }
 
@@ -41,6 +40,14 @@ img {
     width: 75%;
 }
 
+#content{
+    min-height: 19em;
+    background-color: aliceblue;
+    border-radius: 30px;
+    border: 3px solid black;
+    padding: 7px;
+    margin: 0;
+}
 /*@media screen and (min-width: 750px) {
     .game {
         margin: 15% 5% 15% 5%;
