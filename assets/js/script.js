@@ -53,28 +53,30 @@ function attack () {
 }
 
 function monsterAttack() {
-    let attackDamage = Math.floor(Math.random() * 10) + dragon.attackPower;
-    let attackType = Math.floor(Math.random() * 3);
-    if (Math.floor(Math.random() * 10 < 2)) {
-        document.getElementById("content").innerHTML = ("Enemy missed!")
-        attackDamage = 0;
-    } else {
-        if (attackType === 0){
-            document.getElementById("content").innerHTML = ("Dragon breaths fire!");
-            attackDamage = attackDamage + 20;
-        } else if (attackType === 1){
-            document.getElementById("content").innerHTML = ("Dragon casts magic!");
-            attackDamage = attackDamage + 15;
-            dragon.MP = dragon.MP - 10;
+    setTimeout(() => {
+        let attackDamage = Math.floor(Math.random() * 10) + dragon.attackPower;
+        let attackType = Math.floor(Math.random() * 3);
+        if (Math.floor(Math.random() * 10 < 2)) {
+            document.getElementById("content").innerHTML = ("Enemy missed!")
+            attackDamage = 0;
         } else {
-            document.getElementById("content").innerHTML = ("Dragon attacks!");
+            if (attackType === 0){
+                document.getElementById("content").innerHTML = ("Dragon breaths fire!");
+                attackDamage = attackDamage + 20;
+            } else if (attackType === 1){
+                document.getElementById("content").innerHTML = ("Dragon casts magic!");
+                attackDamage = attackDamage + 15;
+                dragon.MP = dragon.MP - 10;
+            } else {
+                document.getElementById("content").innerHTML = ("Dragon attacks!");
+            }
+            player.HP = player.HP - (attackDamage - player.defence);
         }
-        player.HP = player.HP - (attackDamage - player.defence);
-    }
-    document.getElementById("content").innerHTML = (`${attackDamage} damage done to player, ${player.HP} HP remains.`);
-    if (player.HP <= 0 ) {
-        alert(`You Died. Last attack did ${attackDamage} damage`)
-    }
+        document.getElementById("content").innerHTML = (`${attackDamage} damage done to player, ${player.HP} HP remains.`);
+        if (player.HP <= 0 ) {
+            alert(`You Died. Last attack did ${attackDamage} damage`)
+        }
+    }, 5000);
 }
 
 function magicAttack () {
