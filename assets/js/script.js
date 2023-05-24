@@ -1,4 +1,4 @@
-var player = {
+let player = {
     HP:100,
     MP:100,
     attackPower:6,
@@ -7,7 +7,7 @@ var player = {
     defence:6,
 }
 
-var dragon = {
+let dragon = {
     HP:130,
     MP:70,
     attackPower:10,
@@ -15,9 +15,9 @@ var dragon = {
     defence:7,
 }
 
-var vampireHP = 100;
-var demonHP = 100;
-var potion = 3;
+let vampireHP = 100;
+let demonHP = 100;
+let potion = 3;
 
 const music = document.getElementById('music');
 
