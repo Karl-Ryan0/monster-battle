@@ -71,6 +71,10 @@ function monsterAttack() {
                 document.getElementById("content").innerHTML = ("Dragon attacks!");
             }
             player.HP = player.HP - (attackDamage - player.defence);
+            document.getElementById("player-stats").innerHTML = "";
+        for (let stats in player) {
+        document.getElementById("player-stats").innerHTML += `${stats}: ${player[stats]}<br>`;
+      }
         }
         document.getElementById("content").innerHTML = (`${attackDamage} damage done to player, ${player.HP} HP remains.`);
         if (player.HP <= 0 ) {
@@ -93,6 +97,10 @@ function magicAttack () {
     }
     player.MP = player.MP - 10;
     document.getElementById("content").innerHTML = (`${attackDamage} Magic damage done to enemy, ${dragon.HP} HP remains. You have ${player.MP} MP remaining.`);
+    document.getElementById("player-stats").innerHTML = "";
+    for (let stats in player) {
+        document.getElementById("player-stats").innerHTML += `${stats}: ${player[stats]}<br>`;
+      }
     if (dragon.HP <= 0 ) {
         alert(`You beat the Dragon. Your last attack did ${attackDamage} damage`)
     } else {
