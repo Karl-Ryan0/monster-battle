@@ -51,6 +51,11 @@ img {
     margin: 0;
 }
 
+#player-stats{
+    min-height: 200px;
+    background-color: aqua;
+    border-radius: 30px;
+}
 @media screen and (min-width: 650px) {
     body {
         background: url(../images/background.png);

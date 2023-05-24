@@ -1,18 +1,18 @@
 let player = {
-    HP:100,
-    MP:100,
-    attackPower:6,
+    HP: 100,
+    MP: 100,
+    attackPower: 6,
     maxHP: 100,
-    magicPower:8,
-    defence:6,
+    magicPower: 8,
+    defence: 6,
 }
 
 let dragon = {
-    HP:130,
-    MP:70,
-    attackPower:10,
-    magicPower:7,
-    defence:7,
+    HP: 130,
+    MP: 70,
+    attackPower: 10,
+    magicPower: 7,
+    defence: 7,
 }
 
 let vampireHP = 100;
@@ -119,21 +119,25 @@ function takePotion () {
     }
 }
 
-function rollTheDiceStats(){
-    document.getElementById("content").innerHTML = (player);
+function rollTheDiceStats() {
+    document.getElementById("content").innerHTML = player;
     let dice = Math.floor(Math.random() * 6 + 1);
-    player.HP += dice * 10,
+    player.HP += dice * 10;
     player.maxHP = player.HP;
     player.MP += dice;
     player.attackPower += dice;
     player.magicPower += dice;
     player.defence += dice;
-    document.getElementById("content").innerHTML = (`You rolled a ${dice}! Your stats have increased.`);
+    document.getElementById("content").innerHTML = `You rolled a ${dice}! Your stats have increased.`;
     document.getElementById("rollTheDice").style.visibility = "hidden";
     document.getElementById("attackButton").style.visibility = "visible";
     document.getElementById("magicButton").style.visibility = "visible";
     document.getElementById("potionButton").style.visibility = "visible";
-}
+    document.getElementById("player-stats").innerHTML = "";
+    for (let stats in player) {
+      document.getElementById("player-stats").innerHTML += `${stats}: ${player[stats]}<br>`;
+    }
+  }
 
 function getStarted() {
     music.play();
@@ -142,4 +146,7 @@ function getStarted() {
     document.getElementById("rollTheDice").style.visibility = "visible";
     document.getElementById("intro").remove();
     document.getElementById("content").style.visibility = "visible";
+    for (let stats in player) {
+        document.getElementById("player-stats").innerHTML += `${stats}: ${player[stats]}<br>`;
+      }
 }
