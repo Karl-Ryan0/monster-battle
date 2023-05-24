@@ -125,6 +125,10 @@ function takePotion () {
     } else {
         document.getElementById("content").innerHTML = ('You have no potions left!')
     }
+    document.getElementById("player-stats").innerHTML = "";
+    for (let stats in player) {
+        document.getElementById("player-stats").innerHTML += `${stats}: ${player[stats]}<br>`;
+      }
 }
 
 function rollTheDiceStats() {
