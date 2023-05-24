@@ -140,4 +140,7 @@ function getStarted() {
     document.getElementById("content").innerHTML = "Roll the dice for stats!";
     document.getElementById("getStarted").style.visibility = "hidden";
     document.getElementById("rollTheDice").style.visibility = "visible";
+    document.getElementById("intro").style.visibility = "hidden";
+    document.getElementById("intro").innerHTML = "";
+    document.getElementById("content").style.visibility = "visible";
 }
