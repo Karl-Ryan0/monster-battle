@@ -19,6 +19,7 @@ let vampireHP = 100;
 let demonHP = 100;
 let potion = 3;
 
+const playButton = document.getElementById('playButton');
 const music = document.getElementById('music');
 
 let attackButton = document.getElementById('attackButton');
@@ -152,7 +153,6 @@ function rollTheDiceStats() {
   }
 
 function getStarted() {
-    music.play();
     document.getElementById("content").innerHTML = "Roll the dice for stats!";
     document.getElementById("getStarted").style.visibility = "hidden";
     document.getElementById("rollTheDice").style.visibility = "visible";
@@ -162,3 +162,13 @@ function getStarted() {
         document.getElementById("player-stats").innerHTML += `${stats}: ${player[stats]}<br>`;
       }
 }
+
+playButton.addEventListener('click', function() {
+    if (music.paused) {
+      music.play();
+      playButton.textContent = 'Pause Music';
+    } else {
+      music.pause();
+      playButton.textContent = 'Play Music';
+    }
+  });
