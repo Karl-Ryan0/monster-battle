@@ -57,11 +57,14 @@ img {
 }
 #stats{
     display: flex;
+    justify-content: space-around;
 }
 .stats{
-    min-height: 200px;
+    min-height: 150px;
     background-color: aqua;
     border-radius: 30px;
+    padding: 15px;
+    margin: 5px;
 }
 @media screen and (min-width: 650px) {
     body {
