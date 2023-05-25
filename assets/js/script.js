@@ -11,6 +11,7 @@ let dragon = {
     HP: 130,
     MP: 70,
     attackPower: 10,
+    maxHP: 130,
     magicPower: 7,
     defence: 7,
 }
@@ -160,6 +161,9 @@ function getStarted() {
     document.getElementById("content").style.visibility = "visible";
     for (let stats in player) {
         document.getElementById("player-stats").innerHTML += `${stats}: ${player[stats]}<br>`;
+      }
+    for (let stats in player) {
+        document.getElementById("enemy-stats").innerHTML += `${stats}: ${dragon[stats]}<br>`;
       }
 }
 

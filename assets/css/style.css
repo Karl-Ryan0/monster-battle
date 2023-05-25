@@ -55,8 +55,10 @@ img {
     padding: 7px;
     margin: 0;
 }
-
-#player-stats{
+#stats{
+    display: flex;
+}
+.stats{
     min-height: 200px;
     background-color: aqua;
     border-radius: 30px;
