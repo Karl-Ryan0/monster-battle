@@ -153,6 +153,24 @@ function rollTheDiceStats() {
     }
   }
 
+function rollForBonus(){
+    let dice = Math.floor(Math.random() * 6 + 1);
+    if (dice = 1) {
+        alert(`You rolled a ${dice}! Your bonus is `)
+    } else if (dice = 2) {
+        alert(`You rolled a ${dice}! Your bonus is `)
+    } else if (dice = 3) {
+        alert(`You rolled a ${dice}! Your bonus is `)
+    } else if (dice = 4) {
+        alert(`You rolled a ${dice}! Your bonus is `)
+    } else if (dice = 5) {
+        alert(`You rolled a ${dice}! Your bonus is `)
+    } else {
+        alert(`You rolled a ${dice}! Your bonus is `)
+    }
+    
+}
+
 function getStarted() {
     document.getElementById("content").innerHTML = "Roll the dice for stats!";
     document.getElementById("getStarted").style.visibility = "hidden";
