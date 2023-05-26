@@ -175,6 +175,10 @@ function rollForBonus(){
         alert(`You rolled a ${dice}! Your bonus is double defence`)
         player.defence = player.defence * 2;
     } 
+    document.getElementById("player-stats").innerHTML = "";
+    for (let stats in player) {
+        document.getElementById("player-stats").innerHTML += `${stats}: ${player[stats]}<br>`;
+      }
 }
 
 function getStarted() {
