@@ -5,6 +5,7 @@ let player = {
     maxHP: 100,
     magicPower: 8,
     defence: 6,
+    maxMP: 100,
 }
 
 let dragon = {
@@ -156,19 +157,24 @@ function rollTheDiceStats() {
 function rollForBonus(){
     let dice = Math.floor(Math.random() * 6 + 1);
     if (dice = 1) {
-        alert(`You rolled a ${dice}! Your bonus is `)
+        alert(`You rolled a ${dice}! Your bonus is 2 more potions!`)
+        potion = potion +2;
     } else if (dice = 2) {
-        alert(`You rolled a ${dice}! Your bonus is `)
+        alert(`You rolled a ${dice}! Your bonus is full HP`)
+        player.HP = player.maxHP;
     } else if (dice = 3) {
-        alert(`You rolled a ${dice}! Your bonus is `)
+        alert(`You rolled a ${dice}! Your bonus is full MP`)
+        player.MP = player.maxMP;
     } else if (dice = 4) {
-        alert(`You rolled a ${dice}! Your bonus is `)
+        alert(`You rolled a ${dice}! Your bonus is +10 attack power`)
+        player.attackPower = player.attackPower + 10;
     } else if (dice = 5) {
-        alert(`You rolled a ${dice}! Your bonus is `)
+        alert(`You rolled a ${dice}! Your bonus is +5 magic power`)
+        player.magicPower = player.magicPower + 10;
     } else {
-        alert(`You rolled a ${dice}! Your bonus is `)
-    }
-    
+        alert(`You rolled a ${dice}! Your bonus is double defence`)
+        player.defence = player.defence * 2;
+    } 
 }
 
 function getStarted() {
