@@ -23,10 +23,11 @@ p {
 margin-top: 5px;
 font-size: large;
 font-weight: bold;
-color: blue;
-background-color: green;
+color: royalblue;
+background-color: peachpuff;
+border: 1px solid royalblue;
 bottom: 0%;
-border-radius: 30px;
+border-radius: 10px;
 }
 
 .hidden {
@@ -43,9 +44,10 @@ img {
 
 #content{
     min-height: 19em;
-    background-color: aliceblue;
+    background-color: peachpuff;
     border-radius: 30px;
-    border: 3px solid black;
+    color: royalblue;
+    border: 1px solid royalblue;
     padding: 7px;
     margin: 0;
 }
