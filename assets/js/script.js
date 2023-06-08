@@ -41,6 +41,9 @@ getStartedButton.addEventListener('click', getStarted);
 
 function attack () {
     let attackDamage = Math.floor(Math.random() * 10 + 1) + player.attackPower - dragon.defence;
+    document.getElementById("attackButton").style.visibility = "hidden";
+    document.getElementById("magicButton").style.visibility = "hidden";
+    document.getElementById("potionButton").style.visibility = "hidden";
     if (Math.floor(Math.random() * 10 < 2)) {
         document.getElementById("content").innerHTML = ("you missed!")
         attackDamage = 0;
@@ -59,6 +62,9 @@ function monsterAttack() {
     setTimeout(() => {
         let attackDamage = Math.floor(Math.random() * 10) + dragon.attackPower;
         let attackType = Math.floor(Math.random() * 3);
+        document.getElementById("attackButton").style.visibility = "visible";
+        document.getElementById("magicButton").style.visibility = "visible";
+        document.getElementById("potionButton").style.visibility = "visible";
         if (Math.floor(Math.random() * 10 < 2)) {
             document.getElementById("content").innerHTML = ("Enemy missed!")
             attackDamage = 0;
@@ -87,6 +93,9 @@ function monsterAttack() {
 }
 
 function magicAttack () {
+    document.getElementById("attackButton").style.visibility = "hidden";
+    document.getElementById("magicButton").style.visibility = "hidden";
+    document.getElementById("potionButton").style.visibility = "hidden";
     if (player.MP <= 0) {
         document.getElementById("content").innerHTML = ('You have mo magic power left!')
     } else {
