@@ -54,9 +54,16 @@ img {
     padding: 7px;
     margin: 0;
 }
-#stats{
+#stats {
     display: flex;
     justify-content: space-around;
+    color: royalblue;
+    background-color: peachpuff;
+    border: 1px solid royalblue;
+    border-radius: 10px;
+    font-weight: bold;
+    padding: 10px;
+    line-height: 18px;
 }
 
 @media screen and (min-width: 650px) {
