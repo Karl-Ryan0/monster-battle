@@ -184,6 +184,7 @@ function rollForBonus(){
 function getStarted() {
     document.getElementById("content").innerHTML = "Roll the dice for stats!";
     document.getElementById("getStarted").style.visibility = "hidden";
+    document.getElementById("stats").style.visibility = "visible";
     document.getElementById("rollTheDice").style.visibility = "visible";
     document.getElementById("intro").remove();
     document.getElementById("content").style.visibility = "visible";
