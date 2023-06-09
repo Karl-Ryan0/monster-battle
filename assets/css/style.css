@@ -26,8 +26,27 @@ font-weight: bold;
 color: royalblue;
 background-color: peachpuff;
 border: 1px solid royalblue;
-bottom: 0%;
 border-radius: 10px;
+}
+
+#getStarted, #rollTheDice, #playButton {
+    position: sticky;
+    left: 44%;
+}
+
+#attackButton {
+    position: sticky;
+    left:15%;
+}
+
+#magicButton {
+    position: sticky;
+    left: 40%;
+}
+
+#potionButton {
+    position: sticky;
+    left: 65%;
 }
 
 .hidden {
@@ -63,6 +82,16 @@ img {
     line-height: 18px;
 }
 
+#intro {
+    background-color: rgba(255, 218, 185, 0.6);
+    color: royalblue;
+    border-radius: 10px;
+    opacity: 0.5;
+}
+
+#game p {
+    background-color: #fff;
+}
 @media screen and (min-width: 650px) {
     body {
         background: url(../images/background.png);
