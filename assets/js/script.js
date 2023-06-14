@@ -51,6 +51,12 @@ function attack () {
         dragon.HP = dragon.HP - attackDamage;
     }
     document.getElementById("content").innerHTML = (`${attackDamage} Attack damage done to enemy, ${dragon.HP} HP remains.`);
+    for (let stats in player) {
+        document.getElementById("player-stats").innerHTML += `${stats}: ${player[stats]}<br>`;
+      }
+      for (let stats in dragon) {
+        document.getElementById("enemy-stats").innerHTML += `${stats}: ${dragon[stats]}<br>`;
+      }
     if (dragon.HP <= 0 ) {
         alert(`You beat the Dragon. Your last attack did ${attackDamage} damage`);
         rollForBonus();
@@ -85,6 +91,9 @@ function monsterAttack() {
         for (let stats in player) {
         document.getElementById("player-stats").innerHTML += `${stats}: ${player[stats]}<br>`;
       }
+      for (let stats in dragon) {
+        document.getElementById("enemy-stats").innerHTML += `${stats}: ${dragon[stats]}<br>`;
+      }
         }
         document.getElementById("content").innerHTML = (`${attackDamage} damage done to player, ${player.HP} HP remains.`);
         if (player.HP <= 0 ) {
@@ -113,6 +122,9 @@ function magicAttack () {
     document.getElementById("player-stats").innerHTML = "";
     for (let stats in player) {
         document.getElementById("player-stats").innerHTML += `${stats}: ${player[stats]}<br>`;
+      }
+      for (let stats in dragon) {
+        document.getElementById("enemy-stats").innerHTML += `${stats}: ${dragon[stats]}<br>`;
       }
     if (dragon.HP <= 0 ) {
         alert(`You beat the Dragon. Your last attack did ${attackDamage} damage`);
@@ -143,6 +155,9 @@ function takePotion () {
     for (let stats in player) {
         document.getElementById("player-stats").innerHTML += `${stats}: ${player[stats]}<br>`;
       }
+      for (let stats in dragon) {
+        document.getElementById("enemy-stats").innerHTML += `${stats}: ${dragon[stats]}<br>`;
+      }
 }
 
 function rollTheDiceStats() {
@@ -163,6 +178,9 @@ function rollTheDiceStats() {
     for (let stats in player) {
       document.getElementById("player-stats").innerHTML += `${stats}: ${player[stats]}<br>`;
     }
+    for (let stats in dragon) {
+        document.getElementById("enemy-stats").innerHTML += `${stats}: ${dragon[stats]}<br>`;
+      }
   }
 
 function rollForBonus(){
@@ -190,6 +208,9 @@ function rollForBonus(){
     for (let stats in player) {
         document.getElementById("player-stats").innerHTML += `${stats}: ${player[stats]}<br>`;
       }
+      for (let stats in dragon) {
+        document.getElementById("enemy-stats").innerHTML += `${stats}: ${dragon[stats]}<br>`;
+      }
 }
 
 function getStarted() {
@@ -202,7 +223,7 @@ function getStarted() {
     for (let stats in player) {
         document.getElementById("player-stats").innerHTML += `${stats}: ${player[stats]}<br>`;
       }
-    for (let stats in enemy) {
+    for (let stats in dragon) {
         document.getElementById("enemy-stats").innerHTML += `${stats}: ${dragon[stats]}<br>`;
       }
 }
