@@ -52,7 +52,8 @@ function attack () {
     }
     document.getElementById("content").innerHTML = (`${attackDamage} Attack damage done to enemy, ${dragon.HP} HP remains.`);
     if (dragon.HP <= 0 ) {
-        alert(`You beat the Dragon. Your last attack did ${attackDamage} damage`)
+        alert(`You beat the Dragon. Your last attack did ${attackDamage} damage`);
+        rollForBonus();
     } else {
     monsterAttack();
     }
@@ -114,7 +115,8 @@ function magicAttack () {
         document.getElementById("player-stats").innerHTML += `${stats}: ${player[stats]}<br>`;
       }
     if (dragon.HP <= 0 ) {
-        alert(`You beat the Dragon. Your last attack did ${attackDamage} damage`)
+        alert(`You beat the Dragon. Your last attack did ${attackDamage} damage`);
+        rollForBonus();
     } else {
     monsterAttack();
     }}
@@ -200,7 +202,7 @@ function getStarted() {
     for (let stats in player) {
         document.getElementById("player-stats").innerHTML += `${stats}: ${player[stats]}<br>`;
       }
-    for (let stats in player) {
+    for (let stats in enemy) {
         document.getElementById("enemy-stats").innerHTML += `${stats}: ${dragon[stats]}<br>`;
       }
 }
