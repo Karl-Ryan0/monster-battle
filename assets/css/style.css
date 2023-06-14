@@ -70,6 +70,10 @@ img {
     padding: 7px;
     margin: 0;
 }
+#content > img{
+    width: 100px;
+}
+
 #stats {
     display: flex;
     justify-content: space-around;

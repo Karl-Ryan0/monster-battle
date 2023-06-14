@@ -169,12 +169,35 @@ function rollTheDiceStats() {
     player.attackPower += dice;
     player.magicPower += dice;
     player.defence += dice;
-    document.getElementById("content").innerHTML = `You rolled a ${dice}! Your stats have increased.`;
-    document.getElementById("rollTheDice").style.visibility = "hidden";
+    console.log(dice);
+
+
+    
     document.getElementById("attackButton").style.visibility = "visible";
     document.getElementById("magicButton").style.visibility = "visible";
     document.getElementById("potionButton").style.visibility = "visible";
     document.getElementById("player-stats").innerHTML = "";
+    if (dice == 1) {
+        document.getElementById("content").innerHTML = `You rolled a ${dice}! Your stats have increased.<br>
+        <img src="assets/images/one.png" alt="Dice">`;
+    } else if (dice == 2) {
+        document.getElementById("content").innerHTML = `You rolled a ${dice}! Your stats have increased.<br>
+        <img src="assets/images/two.png" alt="Dice">`;
+    } else if (dice == 3) {
+        document.getElementById("content").innerHTML = `You rolled a ${dice}! Your stats have increased.<br>
+        <img src="assets/images/three.png" alt="Dice">`;
+    } else if (dice == 4) {
+        document.getElementById("content").innerHTML = `You rolled a ${dice}! Your stats have increased.<br>
+        <img src="assets/images/four.png" alt="Dice">`;
+    } else if (dice == 5) {
+        document.getElementById("content").innerHTML = `You rolled a ${dice}! Your stats have increased.<br>
+        <img src="assets/images/five.png" alt="Dice">`;
+    } else if (dice == 6) {
+        document.getElementById("content").innerHTML = `You rolled a ${dice}! Your stats have increased.<br>
+        <img src="assets/images/six.png" alt="Dice">`;
+    } else {
+        alert(`You rolled a ${dice}, unexpected result.`)
+    }
     for (let stats in player) {
       document.getElementById("player-stats").innerHTML += `${stats}: ${player[stats]}<br>`;
     }
