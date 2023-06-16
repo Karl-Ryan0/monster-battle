@@ -173,7 +173,8 @@ function rollTheDiceStats() {
     player.defence += dice;
 
 
-    document.getElementById("rollTheDice").style.visibility = "hidden";
+    let removeElement = document.getElementById("getStarted");
+    removeElement.remove();
     document.getElementById("attackButton").style.visibility = "visible";
     document.getElementById("magicButton").style.visibility = "visible";
     document.getElementById("potionButton").style.visibility = "visible";
