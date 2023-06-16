@@ -172,9 +172,6 @@ function rollTheDiceStats() {
     player.magicPower += dice;
     player.defence += dice;
 
-
-    let removeElement = document.getElementById("getStarted");
-    removeElement.remove();
     document.getElementById("attackButton").style.visibility = "visible";
     document.getElementById("magicButton").style.visibility = "visible";
     document.getElementById("potionButton").style.visibility = "visible";
@@ -254,6 +251,8 @@ function getStarted() {
         document.getElementById("enemy-stats").innerHTML += `${stats}: ${dragon[stats]}<br>`;
       }
       document.getElementById("rollTheDice").addEventListener("click", rollTheDiceStats);
+      let removeElement = document.getElementById("getStarted");
+      removeElement.remove();
 }
 
 playButton.addEventListener('click', function() {
