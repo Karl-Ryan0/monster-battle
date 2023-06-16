@@ -251,9 +251,9 @@ function getStarted() {
 playButton.addEventListener('click', function() {
     if (music.paused) {
       music.play();
-      playButton.textContent = 'Pause Music';
+      playButton.innerHTML = '<img src ="assets/images/mute.png" alt "pause">';
     } else {
       music.pause();
-      playButton.textContent = 'Play Music';
+      playButton.innerHTML = '<img src ="assets/images/music.png" alt "Play">';
     }
   });
