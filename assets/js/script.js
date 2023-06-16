@@ -33,9 +33,6 @@ magicButton.addEventListener('click', magicAttack);
 let potionButton = document.getElementById('potionButton');
 potionButton.addEventListener('click', takePotion);
 
-let rollTheDice = document.getElementById('rollTheDice');
-rollTheDice.addEventListener('click', rollTheDiceStats);
-
 let getStartedButton = document.getElementById('getStarted');
 getStartedButton.addEventListener('click', getStarted);
 
@@ -169,10 +166,9 @@ function rollTheDiceStats() {
     player.attackPower += dice;
     player.magicPower += dice;
     player.defence += dice;
-    console.log(dice);
 
 
-    
+    document.getElementById("rollTheDice").style.visibility = "hidden";
     document.getElementById("attackButton").style.visibility = "visible";
     document.getElementById("magicButton").style.visibility = "visible";
     document.getElementById("potionButton").style.visibility = "visible";
@@ -237,7 +233,7 @@ function rollForBonus(){
 }
 
 function getStarted() {
-    document.getElementById("content").innerHTML = "Roll the dice for stats!";
+    document.getElementById("content").innerHTML = 'Roll the dice for stats! <button class="button hidden" id="rollTheDice"><img src="assets/images/one.png" alt="Dice"></button>';
     document.getElementById("getStarted").style.visibility = "hidden";
     document.getElementById("stats").style.visibility = "visible";
     document.getElementById("rollTheDice").style.visibility = "visible";
@@ -249,6 +245,7 @@ function getStarted() {
     for (let stats in dragon) {
         document.getElementById("enemy-stats").innerHTML += `${stats}: ${dragon[stats]}<br>`;
       }
+      document.getElementById("rollTheDice").addEventListener("click", rollTheDiceStats);
 }
 
 playButton.addEventListener('click', function() {
