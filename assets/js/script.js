@@ -48,6 +48,8 @@ function attack () {
         dragon.HP = dragon.HP - attackDamage;
     }
     document.getElementById("content").innerHTML = (`${attackDamage} Attack damage done to enemy, ${dragon.HP} HP remains.`);
+    document.getElementById("player-stats").innerHTML = "";
+    document.getElementById("enemy-stats").innerHTML = "";
     for (let stats in player) {
         document.getElementById("player-stats").innerHTML += `${stats}: ${player[stats]}<br>`;
       }
@@ -85,6 +87,7 @@ function monsterAttack() {
             }
             player.HP = player.HP - (attackDamage - player.defence);
             document.getElementById("player-stats").innerHTML = "";
+            document.getElementById("enemy-stats").innerHTML = "";
         for (let stats in player) {
         document.getElementById("player-stats").innerHTML += `${stats}: ${player[stats]}<br>`;
       }
@@ -117,6 +120,7 @@ function magicAttack () {
     player.MP = player.MP - 10;
     document.getElementById("content").innerHTML = (`${attackDamage} Magic damage done to enemy, ${dragon.HP} HP remains. You have ${player.MP} MP remaining.`);
     document.getElementById("player-stats").innerHTML = "";
+    document.getElementById("enemy-stats").innerHTML = "";
     for (let stats in player) {
         document.getElementById("player-stats").innerHTML += `${stats}: ${player[stats]}<br>`;
       }
@@ -149,6 +153,7 @@ function takePotion () {
         document.getElementById("content").innerHTML = ('You have no potions left!')
     }
     document.getElementById("player-stats").innerHTML = "";
+    document.getElementById("enemy-stats").innerHTML = "";
     for (let stats in player) {
         document.getElementById("player-stats").innerHTML += `${stats}: ${player[stats]}<br>`;
       }
@@ -173,6 +178,7 @@ function rollTheDiceStats() {
     document.getElementById("magicButton").style.visibility = "visible";
     document.getElementById("potionButton").style.visibility = "visible";
     document.getElementById("player-stats").innerHTML = "";
+    document.getElementById("enemy-stats").innerHTML = "";
     if (dice == 1) {
         document.getElementById("content").innerHTML = `You rolled a ${dice}! Your stats have increased.<br>
         <img src="assets/images/one.png" alt="Dice">`;
@@ -224,6 +230,7 @@ function rollForBonus(){
         player.defence = player.defence * 2;
     } 
     document.getElementById("player-stats").innerHTML = "";
+    document.getElementById("enemy-stats").innerHTML = "";
     for (let stats in player) {
         document.getElementById("player-stats").innerHTML += `${stats}: ${player[stats]}<br>`;
       }
