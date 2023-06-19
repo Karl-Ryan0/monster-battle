@@ -9,7 +9,7 @@ let player = {
 }
 
 let dragon = {
-    HP: 1,
+    HP: 120,
     MP: 70,
     attackPower: 10,
     maxHP: 130,
@@ -120,11 +120,13 @@ function monsterAttack() {
         document.getElementById("enemy-stats").innerHTML += `${stats}: ${dragon[stats]}<br>`;
       }
         }
-        document.getElementById("content").innerHTML = (`${attackDamage} damage done to player, ${player.HP} HP remains.`);
+        setTimeout(() => {
+            document.getElementById("content").innerHTML = (`${attackDamage} damage done to player, ${player.HP} HP remains.`)
+        }, 3000);;
         if (player.HP <= 0 ) {
             alert(`You Died. Last attack did ${attackDamage} damage`)
         }
-    }, 5000);
+    }, 3000);
 }
 
 function magicAttack () {
