@@ -198,12 +198,14 @@ function rollTheDiceStats() {
     } else {
         alert(`You rolled a ${dice}, unexpected result.`)
     }
+
     for (let stats in player) {
       document.getElementById("player-stats").innerHTML += `${stats}: ${player[stats]}<br>`;
     }
     for (let stats in dragon) {
         document.getElementById("enemy-stats").innerHTML += `${stats}: ${dragon[stats]}<br>`;
       }
+      document.getElementById("content").innerHTML += `<br>Below are buttons for attack, magic and potion. Your new stats are below.`;
   }
 
 function rollForBonus(){
