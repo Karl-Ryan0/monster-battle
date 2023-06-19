@@ -128,8 +128,36 @@ function magicAttack () {
         document.getElementById("enemy-stats").innerHTML += `${stats}: ${dragon[stats]}<br>`;
       }
     if (dragon.HP <= 0 ) {
-        alert(`You beat the Dragon. Your last attack did ${attackDamage} damage`);
-        rollForBonus();
+        document.getElementById("content").innerHTML = `You beat the Dragon. Your last attack did ${attackDamage} damage. <br> Now roll for a bonus.
+        <table>
+        <tr>
+        <td><img src="assets/images/one.png" alt="Dice"></td>
+        <td>= 2 More Potions</td> 
+        </tr>
+        <tr>
+        <td><img src="assets/images/two.png" alt="Dice"></td>
+        <td>= Full HP</td> 
+        </tr>
+        <tr>
+        <td><img src="assets/images/three.png" alt="Dice"></td>
+        <td>= Full MP</td> 
+        </tr>
+        <tr>
+        <td><img src="assets/images/four.png" alt="Dice"></td>
+        <td>= +10 Attack Power</td> 
+        </tr>
+        <tr>
+        <td><img src="assets/images/five.png" alt="Dice"></td>
+        <td>= +5 Magic Power</td> 
+        </tr>
+        <tr>
+        <td><img src="assets/images/six.png" alt="Dice"></td>
+        <td>= Double Defence</td> 
+        </tr>
+        </table>
+        
+        `;
+        
     } else {
     monsterAttack();
     }}
