@@ -93,9 +93,7 @@ function monsterAttack() {
     setTimeout(() => {
         let attackDamage = Math.floor(Math.random() * 10) + dragon.attackPower;
         let attackType = Math.floor(Math.random() * 3);
-        document.getElementById("attackButton").style.visibility = "visible";
-        document.getElementById("magicButton").style.visibility = "visible";
-        document.getElementById("potionButton").style.visibility = "visible";
+
         if (Math.floor(Math.random() * 10 < 2)) {
             document.getElementById("content").innerHTML = ("Enemy missed!")
             attackDamage = 0;
@@ -122,6 +120,9 @@ function monsterAttack() {
         }
         setTimeout(() => {
             document.getElementById("content").innerHTML = (`${attackDamage} damage done to player, ${player.HP} HP remains.`)
+            document.getElementById("attackButton").style.visibility = "visible";
+            document.getElementById("magicButton").style.visibility = "visible";
+            document.getElementById("potionButton").style.visibility = "visible";
         }, 3000);;
         if (player.HP <= 0 ) {
             alert(`You Died. Last attack did ${attackDamage} damage`)
