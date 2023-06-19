@@ -27,8 +27,8 @@ color: royalblue;
 background-color: peachpuff;
 border: 1px solid royalblue;
 border-radius: 10px;
-width: 70px;
-height: 70px;
+width: 60px;
+height: 60px;
 cursor: pointer;
 }
 
@@ -65,7 +65,7 @@ img {
 }
 
 #content{
-    min-height: 19em;
+    min-height: 12em;
     background-color: white;
     border-radius: 30px;
     color: royalblue;
@@ -84,8 +84,6 @@ img {
     background-color: peachpuff;
     border: 1px solid royalblue;
     border-radius: 10px;
-    font-weight: bold;
-    padding: 10px;
     line-height: 18px;
 }
 
@@ -96,7 +94,6 @@ img {
     border: 1px solid royalblue;
     padding: 5% 5%;
     line-height: 1.25;
-    font-size: 20px;
     font-weight: bolder;
 }
 

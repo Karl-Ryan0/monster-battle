@@ -238,7 +238,7 @@ function rollForBonus(){
 }
 
 function getStarted() {
-    document.getElementById("content").innerHTML = 'Roll the dice for stats! <button class="button hidden" id="rollTheDice"><img src="assets/images/one.png" alt="Dice"></button>';
+    document.getElementById("content").innerHTML = 'Roll the dice for stats! <br> <button class="button hidden" id="rollTheDice"><img src="assets/images/one.png" alt="Dice"></button>';
     document.getElementById("getStarted").style.visibility = "hidden";
     document.getElementById("stats").style.visibility = "visible";
     document.getElementById("rollTheDice").style.visibility = "visible";
