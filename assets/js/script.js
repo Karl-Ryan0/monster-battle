@@ -312,6 +312,9 @@ function victory() {
     <td><img src="assets/images/six.png" alt="Dice"></td>
     <td>= Double Defence</td> 
     </tr>
-    </table>`;
+    </table>`
+    let removeElement = document.getElementById("button-container");
+    removeElement.remove();
+    ;
     
 }
