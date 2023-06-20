@@ -1,5 +1,5 @@
 let player = {
-    HP: 1,
+    HP: 100,
     MP: 100,
     attackPower: 6,
     maxHP: 100,
@@ -107,7 +107,8 @@ function monsterAttack() {
           document.getElementById("content").innerHTML = "Dragon breathes fire!";
           attackDamage = attackDamage + 20;
         } else if (attackType === 1) {
-          document.getElementById("content").innerHTML = "Dragon casts magic!";
+          document.getElementById("content").innerHTML = `Dragon casts magic!`;
+          document.getElementById("content").innerHTML += `<br><img src="assets/images/magic.png" alt="Magic">`;
           attackDamage = attackDamage + 15;
           dragon.MP = dragon.MP - 10;
         } else {
