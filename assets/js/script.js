@@ -96,50 +96,54 @@ function attack () {
 
 function monsterAttack() {
     setTimeout(() => {
-        let attackDamage = Math.floor(Math.random() * 10) + dragon.attackPower;
-        let attackType = Math.floor(Math.random() * 3);
-
-        if (Math.floor(Math.random() * 10 < 2)) {
-            document.getElementById("content").innerHTML = ("Enemy missed!")
-            attackDamage = 0;
+      let attackDamage = Math.floor(Math.random() * 10) + dragon.attackPower;
+      let attackType = Math.floor(Math.random() * 3);
+  
+      if (Math.floor(Math.random() * 10 < 2)) {
+        document.getElementById("content").innerHTML = "Enemy missed!";
+        attackDamage = 0;
+      } else {
+        if (attackType === 0) {
+          document.getElementById("content").innerHTML = "Dragon breathes fire!";
+          attackDamage = attackDamage + 20;
+        } else if (attackType === 1) {
+          document.getElementById("content").innerHTML = "Dragon casts magic!";
+          attackDamage = attackDamage + 15;
+          dragon.MP = dragon.MP - 10;
         } else {
-            if (attackType === 0){
-                document.getElementById("content").innerHTML = ("Dragon breathes fire!");
-                attackDamage = attackDamage + 20;
-            } else if (attackType === 1){
-                document.getElementById("content").innerHTML = ("Dragon casts magic!");
-                attackDamage = attackDamage + 15;
-                dragon.MP = dragon.MP - 10;
-            } else {
-                document.getElementById("content").innerHTML = ("Dragon attacks!");
-            }
-            player.HP = player.HP - (attackDamage - player.defence);
-            document.getElementById("player-stats").innerHTML = "";
-            document.getElementById("enemy-stats").innerHTML = "";
+          document.getElementById("content").innerHTML = "Dragon attacks!";
+        }
+        player.HP = player.HP - (attackDamage - player.defence);
+        document.getElementById("player-stats").innerHTML = "";
+        document.getElementById("enemy-stats").innerHTML = "";
         for (let stats in player) {
-        document.getElementById("player-stats").innerHTML += `${stats}: ${player[stats]}<br>`;
-      }
-      for (let stats in dragon) {
-        document.getElementById("enemy-stats").innerHTML += `${stats}: ${dragon[stats]}<br>`;
-      }
+          document.getElementById("player-stats").innerHTML += `${stats}: ${player[stats]}<br>`;
         }
+        for (let stats in dragon) {
+          document.getElementById("enemy-stats").innerHTML += `${stats}: ${dragon[stats]}<br>`;
+        }
+      }
+  
+      if (player.HP <= 0) {
+        player.HP = 0;
+        document.getElementById("player-stats").innerHTML = "";
+        for (let stats in dragon) {
+          document.getElementById("player-stats").innerHTML += `${stats}: ${player[stats]}<br>`;
+        }
+        document.getElementById("content").innerHTML += `<br>You Died. Last attack did ${attackDamage} damage<br>`;
         setTimeout(() => {
-            document.getElementById("content").innerHTML = (`${attackDamage} damage done to player, ${player.HP} HP remains.`)
-            document.getElementById("attackButton").style.visibility = "visible";
-            document.getElementById("magicButton").style.visibility = "visible";
-            document.getElementById("potionButton").style.visibility = "visible";
-        }, 3000);
-        if (player.HP <= 0 ) {
-            player.HP = 0;
-            document.getElementById("player-stats").innerHTML = "";
-            for (let stats in dragon) {
-            document.getElementById("player-stats").innerHTML += `${stats}: ${player[stats]}<br>`;
-          }
-          document.getElementById("content").innerHTML = (`You Died. Last attack did ${attackDamage} damage`);
           content.innerHTML += '<button class="button" onclick="location.reload()">Try again</button>';
-        }
+        }, 3000);
+      } else {
+        setTimeout(() => {
+          document.getElementById("content").innerHTML = `${attackDamage} damage done to player, ${player.HP} HP remains.`;
+          document.getElementById("attackButton").style.visibility = "visible";
+          document.getElementById("magicButton").style.visibility = "visible";
+          document.getElementById("potionButton").style.visibility = "visible";
+        }, 3000);
+      }
     }, 3000);
-}
+  }
 
 function magicAttack () {
     document.getElementById("attackButton").style.visibility = "hidden";

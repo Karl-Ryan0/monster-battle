@@ -38,6 +38,7 @@ border-radius: 10px;
 width: 55px;
 height: 55px;
 cursor: pointer;
+padding: 0;
 }
 
 .button:hover{
