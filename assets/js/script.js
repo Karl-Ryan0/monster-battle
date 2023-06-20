@@ -236,7 +236,7 @@ function rollForBonus(){
     } else if (dice == 5) {
         document.getElementById("content").innerHTML += `<img src="assets/images/five.png" alt="Dice">`;
         document.getElementById("content").innerHTML += (`Your bonus is +5 magic power`)
-        player.magicPower = player.magicPower + 10;
+        player.magicPower = player.magicPower + 5;
     } else {
         document.getElementById("content").innerHTML += `<img src="assets/images/six.png" alt="Dice">`;
         document.getElementById("content").innerHTML += (`Your bonus is double defence`)
@@ -250,6 +250,8 @@ function rollForBonus(){
       for (let stats in dragon) {
         document.getElementById("enemy-stats").innerHTML += `${stats}: ${dragon[stats]}<br>`;
       }
+      let removeElement = document.getElementById("bonusButton");
+      removeElement.remove();
 }
 
 function getStarted() {
@@ -290,31 +292,35 @@ function victory() {
     <table>
     <tr>
     <td><img src="assets/images/one.png" alt="Dice"></td>
-    <td>= 2 More Potions</td> 
+    <td> 2 More Potions</td> 
     </tr>
     <tr>
     <td><img src="assets/images/two.png" alt="Dice"></td>
-    <td>= Full HP</td> 
+    <td> Full HP</td> 
     </tr>
     <tr>
     <td><img src="assets/images/three.png" alt="Dice"></td>
-    <td>= Full MP</td> 
+    <td> Full MP</td> 
     </tr>
     <tr>
     <td><img src="assets/images/four.png" alt="Dice"></td>
-    <td>= +10 Attack Power</td> 
+    <td> +10 Attack Power</td> 
     </tr>
     <tr>
     <td><img src="assets/images/five.png" alt="Dice"></td>
-    <td>= +5 Magic Power</td> 
+    <td> +5 Magic Power</td> 
     </tr>
     <tr>
     <td><img src="assets/images/six.png" alt="Dice"></td>
-    <td>= Double Defence</td> 
+    <td> Double Defence</td> 
     </tr>
-    </table>`
-    let removeElement = document.getElementById("button-container");
-    removeElement.remove();
-    ;
-    
-}
+    </table>`;
+    let parentDiv = document.getElementById("button-container");
+    let elements = parentDiv.querySelectorAll(".button");
+    for (let i = 0; i < elements.length; i++) {
+        parentDiv.removeChild(elements[i]);
+    }
+    let parentElement = document.getElementById("button-container");
+    let buttonHTML = '<button id="bonusButton" class="button"><img src="assets/images/one.png" alt="Dice" onclick="rollForBonus()"></button>';
+    parentElement.innerHTML += buttonHTML;
+    }
