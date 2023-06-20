@@ -9,7 +9,7 @@ let player = {
 }
 
 let dragon = {
-    HP: 120,
+    HP: 1,
     MP: 70,
     attackPower: 10,
     maxHP: 130,
@@ -57,6 +57,11 @@ function attack () {
         document.getElementById("enemy-stats").innerHTML += `${stats}: ${dragon[stats]}<br>`;
       }
     if (dragon.HP <= 0 ) {
+        dragon.HP = 0;
+        document.getElementById("enemy-stats").innerHTML = "";
+        for (let stats in dragon) {
+            document.getElementById("enemy-stats").innerHTML += `${stats}: ${dragon[stats]}<br>`;
+          }
         document.getElementById("content").innerHTML = `You beat the Dragon. Your last attack did ${attackDamage} damage. <br> Now roll for a bonus.
         <table>
         <tr>
@@ -99,7 +104,7 @@ function monsterAttack() {
             attackDamage = 0;
         } else {
             if (attackType === 0){
-                document.getElementById("content").innerHTML = ("Dragon breaths fire!");
+                document.getElementById("content").innerHTML = ("Dragon breathes fire!");
                 attackDamage = attackDamage + 20;
             } else if (attackType === 1){
                 document.getElementById("content").innerHTML = ("Dragon casts magic!");
@@ -156,6 +161,11 @@ function magicAttack () {
         document.getElementById("enemy-stats").innerHTML += `${stats}: ${dragon[stats]}<br>`;
       }
     if (dragon.HP <= 0 ) {
+        dragon.HP = 0;
+        document.getElementById("enemy-stats").innerHTML = "";
+        for (let stats in dragon) {
+            document.getElementById("enemy-stats").innerHTML += `${stats}: ${dragon[stats]}<br>`;
+          }
         document.getElementById("content").innerHTML = `You beat the Dragon. Your last attack did ${attackDamage} damage. <br> Now roll for a bonus.
         <table>
         <tr>
