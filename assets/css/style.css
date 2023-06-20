@@ -19,6 +19,14 @@ p {
     text-align: center;
 }
 
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 15%;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
 .button {
 margin-top: 5px;
 font-size: large;
@@ -33,27 +41,12 @@ cursor: pointer;
 }
 
 .button:hover{
-    background-color: #000;
+    background-color: #C71585;
 }
 
 #getStarted, #rollTheDice, #playButton {
     position: sticky;
     left: 44%;
-}
-
-#attackButton {
-    position: sticky;
-    left:15%;
-}
-
-#magicButton {
-    position: sticky;
-    left: 40%;
-}
-
-#potionButton {
-    position: sticky;
-    left: 65%;
 }
 
 .hidden {

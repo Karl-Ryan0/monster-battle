@@ -123,9 +123,9 @@ function monsterAttack() {
             document.getElementById("attackButton").style.visibility = "visible";
             document.getElementById("magicButton").style.visibility = "visible";
             document.getElementById("potionButton").style.visibility = "visible";
-        }, 3000);;
+        }, 3000);
         if (player.HP <= 0 ) {
-            alert(`You Died. Last attack did ${attackDamage} damage`)
+            alert(`You Died. Last attack did ${attackDamage} damage`);
         }
     }, 3000);
 }
