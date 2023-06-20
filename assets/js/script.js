@@ -252,6 +252,9 @@ function rollForBonus(){
       }
       let removeElement = document.getElementById("bonusButton");
       removeElement.remove();
+      let parentElement = document.getElementById("button-container");
+      let buttonHTML = '<button id="nextMonster" class="button" onclick="location.reload()">Next!</button>';
+      parentElement.innerHTML += buttonHTML;
 }
 
 function getStarted() {
