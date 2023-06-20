@@ -1,5 +1,5 @@
 let player = {
-    HP: 100,
+    HP: 1,
     MP: 100,
     attackPower: 6,
     maxHP: 100,
@@ -9,9 +9,9 @@ let player = {
 }
 
 let dragon = {
-    HP: 1,
+    HP: 130,
     MP: 70,
-    attackPower: 10,
+    attackPower: 100,
     maxHP: 130,
     magicPower: 7,
     defence: 7,
@@ -130,12 +130,13 @@ function monsterAttack() {
             document.getElementById("potionButton").style.visibility = "visible";
         }, 3000);
         if (player.HP <= 0 ) {
-            dragon.HP = 0;
+            player.HP = 0;
             document.getElementById("player-stats").innerHTML = "";
             for (let stats in dragon) {
             document.getElementById("player-stats").innerHTML += `${stats}: ${player[stats]}<br>`;
           }
           document.getElementById("content").innerHTML = (`You Died. Last attack did ${attackDamage} damage`);
+          content.innerHTML += '<button class="button" onclick="location.reload()">Try again</button>';
         }
     }, 3000);
 }
@@ -336,3 +337,8 @@ playButton.addEventListener('click', function() {
       playButton.innerHTML = '<img src ="assets/images/music.png" alt "Play">';
     }
   });
+
+function retry() {
+    let retryButton = document.getElementById("content");
+    retryButton.innerHTML = '<button onclick="alert(\'Button Clicked!\')">Click Me</button>';
+}
