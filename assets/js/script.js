@@ -130,7 +130,12 @@ function monsterAttack() {
             document.getElementById("potionButton").style.visibility = "visible";
         }, 3000);
         if (player.HP <= 0 ) {
-            alert(`You Died. Last attack did ${attackDamage} damage`);
+            dragon.HP = 0;
+            document.getElementById("player-stats").innerHTML = "";
+            for (let stats in dragon) {
+            document.getElementById("player-stats").innerHTML += `${stats}: ${player[stats]}<br>`;
+          }
+          document.getElementById("content").innerHTML = (`You Died. Last attack did ${attackDamage} damage`);
         }
     }, 3000);
 }
