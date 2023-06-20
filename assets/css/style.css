@@ -32,6 +32,10 @@ height: 60px;
 cursor: pointer;
 }
 
+.button:hover{
+    background-color: #000;
+}
+
 #getStarted, #rollTheDice, #playButton {
     position: sticky;
     left: 44%;
