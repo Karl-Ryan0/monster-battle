@@ -9,7 +9,7 @@ let player = {
 }
 
 let dragon = {
-    HP: 130,
+    HP: 1,
     MP: 70,
     attackPower: 100,
     maxHP: 130,
@@ -57,38 +57,7 @@ function attack () {
         document.getElementById("enemy-stats").innerHTML += `${stats}: ${dragon[stats]}<br>`;
       }
     if (dragon.HP <= 0 ) {
-        dragon.HP = 0;
-        document.getElementById("enemy-stats").innerHTML = "";
-        for (let stats in dragon) {
-            document.getElementById("enemy-stats").innerHTML += `${stats}: ${dragon[stats]}<br>`;
-          }
-        document.getElementById("content").innerHTML = `You beat the Dragon. Your last attack did ${attackDamage} damage. <br> Now roll for a bonus.
-        <table>
-        <tr>
-        <td><img src="assets/images/one.png" alt="Dice"></td>
-        <td>= 2 More Potions</td> 
-        </tr>
-        <tr>
-        <td><img src="assets/images/two.png" alt="Dice"></td>
-        <td>= Full HP</td> 
-        </tr>
-        <tr>
-        <td><img src="assets/images/three.png" alt="Dice"></td>
-        <td>= Full MP</td> 
-        </tr>
-        <tr>
-        <td><img src="assets/images/four.png" alt="Dice"></td>
-        <td>= +10 Attack Power</td> 
-        </tr>
-        <tr>
-        <td><img src="assets/images/five.png" alt="Dice"></td>
-        <td>= +5 Magic Power</td> 
-        </tr>
-        <tr>
-        <td><img src="assets/images/six.png" alt="Dice"></td>
-        <td>= Double Defence</td> 
-        </tr>
-        </table>`;
+        victory();
     } else {
     monsterAttack();
     }
@@ -172,39 +141,7 @@ function magicAttack () {
         document.getElementById("enemy-stats").innerHTML += `${stats}: ${dragon[stats]}<br>`;
       }
     if (dragon.HP <= 0 ) {
-        dragon.HP = 0;
-        document.getElementById("enemy-stats").innerHTML = "";
-        for (let stats in dragon) {
-            document.getElementById("enemy-stats").innerHTML += `${stats}: ${dragon[stats]}<br>`;
-          }
-        document.getElementById("content").innerHTML = `You beat the Dragon. Your last attack did ${attackDamage} damage. <br> Now roll for a bonus.
-        <table>
-        <tr>
-        <td><img src="assets/images/one.png" alt="Dice"></td>
-        <td>= 2 More Potions</td> 
-        </tr>
-        <tr>
-        <td><img src="assets/images/two.png" alt="Dice"></td>
-        <td>= Full HP</td> 
-        </tr>
-        <tr>
-        <td><img src="assets/images/three.png" alt="Dice"></td>
-        <td>= Full MP</td> 
-        </tr>
-        <tr>
-        <td><img src="assets/images/four.png" alt="Dice"></td>
-        <td>= +10 Attack Power</td> 
-        </tr>
-        <tr>
-        <td><img src="assets/images/five.png" alt="Dice"></td>
-        <td>= +5 Magic Power</td> 
-        </tr>
-        <tr>
-        <td><img src="assets/images/six.png" alt="Dice"></td>
-        <td>= Double Defence</td> 
-        </tr>
-        </table>`;
-        
+        victory();
     } else {
     monsterAttack();
     }}
@@ -343,7 +280,38 @@ playButton.addEventListener('click', function() {
     }
   });
 
-function retry() {
-    let retryButton = document.getElementById("content");
-    retryButton.innerHTML = '<button onclick="alert(\'Button Clicked!\')">Click Me</button>';
+function victory() {
+    dragon.HP = 0;
+    document.getElementById("enemy-stats").innerHTML = "";
+    for (let stats in dragon) {
+        document.getElementById("enemy-stats").innerHTML += `${stats}: ${dragon[stats]}<br>`;
+      }
+    document.getElementById("content").innerHTML = `You beat the Dragon! <br> Now roll for a bonus.
+    <table>
+    <tr>
+    <td><img src="assets/images/one.png" alt="Dice"></td>
+    <td>= 2 More Potions</td> 
+    </tr>
+    <tr>
+    <td><img src="assets/images/two.png" alt="Dice"></td>
+    <td>= Full HP</td> 
+    </tr>
+    <tr>
+    <td><img src="assets/images/three.png" alt="Dice"></td>
+    <td>= Full MP</td> 
+    </tr>
+    <tr>
+    <td><img src="assets/images/four.png" alt="Dice"></td>
+    <td>= +10 Attack Power</td> 
+    </tr>
+    <tr>
+    <td><img src="assets/images/five.png" alt="Dice"></td>
+    <td>= +5 Magic Power</td> 
+    </tr>
+    <tr>
+    <td><img src="assets/images/six.png" alt="Dice"></td>
+    <td>= Double Defence</td> 
+    </tr>
+    </table>`;
+    
 }
