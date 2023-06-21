@@ -15,7 +15,6 @@ let dragon = {
     maxHP: 130,
     magicPower: 7,
     defence: 7,
-    alive: true,
 }
 
 let vampire = {
@@ -25,7 +24,6 @@ let vampire = {
   maxHP: 150,
   magicPower: 9,
   defence: 5,
-  alive: true,
 }
 
 let demon = {
@@ -35,7 +33,12 @@ let demon = {
   maxHP: 130,
   magicPower: 10,
   defence: 8,
-  alive: true,
+}
+
+let alive = {
+  dragon: true,
+  vampire: true,
+  demon: true,
 }
 
 let monster;
@@ -364,3 +367,15 @@ function victory() {
     let buttonHTML = '<button id="bonusButton" class="button"><img src="assets/images/one.png" alt="Dice" onclick="rollForBonus()"></button>';
     parentElement.innerHTML += buttonHTML;
     }
+
+function nextMonster() {
+  if (alive.dragon === true) {
+    alive.dragon = false;
+    monster = vampire;
+  } else if (alive.dragon === false && alive.vampire === true) {
+    alive.vampire = false;
+    monster = demon;
+  } else {
+    completeVictory();
+  }
+}
