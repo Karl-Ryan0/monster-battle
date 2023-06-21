@@ -369,13 +369,17 @@ function victory() {
     }
 
 function nextMonster() {
+  let removeElement = document.getElementById("nextMonster");
+  removeElement.remove();
   if (alive.dragon === true) {
     alive.dragon = false;
     monster = vampire;
+    document.getElementById("enemy-name").innerHTML = "Vampire";
   next();
   } else if (alive.dragon === false && alive.vampire === true) {
     alive.vampire = false;
     monster = demon;
+    document.getElementById("enemy-name").innerHTML = "Demon";
     next();
   } else {
     completeVictory();
@@ -384,9 +388,13 @@ function nextMonster() {
 
 function next(){
   document.getElementById("content").innerHTML = "";
-  document.getElementById("enemy-name").innerHTML = "Vampire";
-  document.getElementById("enemy-stats").innerHTML = ""
-  document.getElementById("player-stats").innerHTML = ""
+  document.getElementById("enemy-stats").innerHTML = "";
+  document.getElementById("player-stats").innerHTML = "";
+  let parentElement = document.getElementById("button-container");
+  let attack = '<button id="attackButton" class="button"><img src="assets/images/attack.png" alt="Dice" onclick="attack()"></button>';
+  let magic = '<button id="magicButton" class="button"><img src="assets/images/magic.png" alt="Dice" onclick="magicAttack()"></button>';
+  let potion = '<button id="potionButton" class="button"><img src="assets/images/potion.png" alt="Dice" onclick="takePotion()"></button>';
+  parentElement.innerHTML += attack += magic += potion;
   for (let stats in player) {
     document.getElementById("player-stats").innerHTML += `${stats}: ${player[stats]}<br>`;
   }
