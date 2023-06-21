@@ -15,6 +15,7 @@ let dragon = {
     maxHP: 130,
     magicPower: 7,
     defence: 7,
+    alive: true,
 }
 
 let vampire = {
@@ -24,6 +25,7 @@ let vampire = {
   maxHP: 150,
   magicPower: 9,
   defence: 5,
+  alive: true,
 }
 
 let demon = {
@@ -33,10 +35,11 @@ let demon = {
   maxHP: 130,
   magicPower: 10,
   defence: 8,
+  alive: true,
 }
 
 let monster;
-
+let username;
 let potion = 3;
 
 const playButton = document.getElementById('playButton');
@@ -287,6 +290,8 @@ function rollForBonus(){
 }
 
 function getStarted() {
+    username = window.prompt("Enter your name:");
+    document.getElementById("username").innerHTML = username;
     monster = dragon;
     let gameArea = document.getElementById("game");
     let playArea = document.createElement("p");
