@@ -3,22 +3,40 @@ let player = {
     MP: 100,
     attackPower: 6,
     maxHP: 100,
-    magicPower: 8,
+    magicPower: 800,
     defence: 6,
-    maxMP: 100,
+    maxMP: 1000,
 }
 
 let dragon = {
-    HP: 1,
+    HP: 130,
     MP: 70,
-    attackPower: 100,
+    attackPower: 10,
     maxHP: 130,
     magicPower: 7,
     defence: 7,
 }
 
-let vampireHP = 100;
-let demonHP = 100;
+let vampire = {
+  HP: 150,
+  MP: 30,
+  attackPower: 7,
+  maxHP: 150,
+  magicPower: 9,
+  defence: 5,
+}
+
+let demon = {
+  HP: 170,
+  MP: 70,
+  attackPower: 100,
+  maxHP: 130,
+  magicPower: 10,
+  defence: 8,
+}
+
+let monster;
+
 let potion = 3;
 
 const playButton = document.getElementById('playButton');
@@ -63,7 +81,18 @@ function attack () {
     }
 }
 
-function monsterAttack() {
+function monsterAttack(){
+  if (monster = dragon) {
+      dragonAttack();
+  } else if (monster = vampire) {
+      vampireAttack();
+  } else {
+    demonAttack();
+  }
+}
+
+
+function dragonAttack() {
     setTimeout(() => {
       let attackDamage = Math.floor(Math.random() * 10) + dragon.attackPower;
       let attackType = Math.floor(Math.random() * 3);
@@ -258,6 +287,7 @@ function rollForBonus(){
 }
 
 function getStarted() {
+    monster = dragon;
     let gameArea = document.getElementById("game");
     let playArea = document.createElement("p");
     playArea.id = "content";
