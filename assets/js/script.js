@@ -329,45 +329,49 @@ playButton.addEventListener('click', function() {
 function victory() {
     monster.HP = 0;
     document.getElementById("enemy-stats").innerHTML = "";
-    for (let stats in monster) {
-        document.getElementById("enemy-stats").innerHTML += `${stats}: ${monster[stats]}<br>`;
+    if (!(monsterName === "Demon")) {
+      for (let stats in monster) {
+          document.getElementById("enemy-stats").innerHTML += `${stats}: ${monster[stats]}<br>`;
+        }
+      document.getElementById("content").innerHTML = `You beat the ${monsterName}! <br> Now roll for a bonus.
+      <table>
+      <tr>
+      <td><img src="assets/images/one.png" alt="Dice"></td>
+      <td> 2 More Potions</td> 
+      </tr>
+      <tr>
+      <td><img src="assets/images/two.png" alt="Dice"></td>
+      <td> Full HP</td> 
+      </tr>
+      <tr>
+      <td><img src="assets/images/three.png" alt="Dice"></td>
+      <td> Full MP</td> 
+      </tr>
+      <tr>
+      <td><img src="assets/images/four.png" alt="Dice"></td>
+      <td> +10 Attack Power</td> 
+      </tr>
+      <tr>
+      <td><img src="assets/images/five.png" alt="Dice"></td>
+      <td> +5 Magic Power</td> 
+      </tr>
+      <tr>
+      <td><img src="assets/images/six.png" alt="Dice"></td>
+      <td> Double Defence</td> 
+      </tr>
+      </table>`;
+      let parentDiv = document.getElementById("button-container");
+      let elements = parentDiv.querySelectorAll(".button");
+      for (let i = 0; i < elements.length; i++) {
+          parentDiv.removeChild(elements[i]);
       }
-    document.getElementById("content").innerHTML = `You beat the ${monsterName}! <br> Now roll for a bonus.
-    <table>
-    <tr>
-    <td><img src="assets/images/one.png" alt="Dice"></td>
-    <td> 2 More Potions</td> 
-    </tr>
-    <tr>
-    <td><img src="assets/images/two.png" alt="Dice"></td>
-    <td> Full HP</td> 
-    </tr>
-    <tr>
-    <td><img src="assets/images/three.png" alt="Dice"></td>
-    <td> Full MP</td> 
-    </tr>
-    <tr>
-    <td><img src="assets/images/four.png" alt="Dice"></td>
-    <td> +10 Attack Power</td> 
-    </tr>
-    <tr>
-    <td><img src="assets/images/five.png" alt="Dice"></td>
-    <td> +5 Magic Power</td> 
-    </tr>
-    <tr>
-    <td><img src="assets/images/six.png" alt="Dice"></td>
-    <td> Double Defence</td> 
-    </tr>
-    </table>`;
-    let parentDiv = document.getElementById("button-container");
-    let elements = parentDiv.querySelectorAll(".button");
-    for (let i = 0; i < elements.length; i++) {
-        parentDiv.removeChild(elements[i]);
+      let parentElement = document.getElementById("button-container");
+      let buttonHTML = '<button id="bonusButton" class="button"><img src="assets/images/one.png" alt="Dice" onclick="rollForBonus()"></button>';
+      parentElement.innerHTML += buttonHTML;
+      } else {
+      completeVictory();
     }
-    let parentElement = document.getElementById("button-container");
-    let buttonHTML = '<button id="bonusButton" class="button"><img src="assets/images/one.png" alt="Dice" onclick="rollForBonus()"></button>';
-    parentElement.innerHTML += buttonHTML;
-    }
+}
 
 function nextMonster() {
   let removeElement = document.getElementById("nextMonster");
@@ -384,8 +388,8 @@ function nextMonster() {
     monsterName = "Demon"
     document.getElementById("enemy-name").innerHTML = monsterName;
     next();
-  } else {
-    completeVictory();
+  } else if (alive.vampire === false && alive.demon === true) {
+    alive.demon = false;
   }
 };
 
