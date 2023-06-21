@@ -378,4 +378,8 @@ function nextMonster() {
   } else {
     completeVictory();
   }
+};
+
+completeVictory() {
+  alert("You win!")
 }
