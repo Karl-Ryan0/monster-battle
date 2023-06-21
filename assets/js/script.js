@@ -42,6 +42,7 @@ let alive = {
 }
 
 let monster;
+let monsterName = "Dragon"
 let username;
 let potion = 3;
 
@@ -331,7 +332,7 @@ function victory() {
     for (let stats in monster) {
         document.getElementById("enemy-stats").innerHTML += `${stats}: ${monster[stats]}<br>`;
       }
-    document.getElementById("content").innerHTML = `You beat the Dragon! <br> Now roll for a bonus.
+    document.getElementById("content").innerHTML = `You beat the ${monsterName}! <br> Now roll for a bonus.
     <table>
     <tr>
     <td><img src="assets/images/one.png" alt="Dice"></td>
@@ -374,12 +375,14 @@ function nextMonster() {
   if (alive.dragon === true) {
     alive.dragon = false;
     monster = vampire;
-    document.getElementById("enemy-name").innerHTML = "Vampire";
+    monsterName = "Vampire"
+    document.getElementById("enemy-name").innerHTML = monsterName;
   next();
   } else if (alive.dragon === false && alive.vampire === true) {
     alive.vampire = false;
     monster = demon;
-    document.getElementById("enemy-name").innerHTML = "Demon";
+    monsterName = "Demon"
+    document.getElementById("enemy-name").innerHTML = monsterName;
     next();
   } else {
     completeVictory();
@@ -387,7 +390,7 @@ function nextMonster() {
 };
 
 function next(){
-  document.getElementById("content").innerHTML = "";
+  document.getElementById("content").innerHTML = `Get ready to fight the ${monsterName}!`;
   document.getElementById("enemy-stats").innerHTML = "";
   document.getElementById("player-stats").innerHTML = "";
   let parentElement = document.getElementById("button-container");
