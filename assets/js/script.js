@@ -98,7 +98,6 @@ function monsterAttack(){
   }
 }
 
-
 function dragonAttack() {
     setTimeout(() => {
       let attackDamage = Math.floor(Math.random() * 10) + monster.attackPower;
@@ -118,6 +117,111 @@ function dragonAttack() {
           monster.MP = monster.MP - 10;
         } else {
           document.getElementById("content").innerHTML = "Dragon attacks!";
+        }
+        player.HP = player.HP - (attackDamage - player.defence);
+        document.getElementById("player-stats").innerHTML = "";
+        document.getElementById("enemy-stats").innerHTML = "";
+        for (let stats in player) {
+          document.getElementById("player-stats").innerHTML += `${stats}: ${player[stats]}<br>`;
+        }
+        for (let stats in monster) {
+          document.getElementById("enemy-stats").innerHTML += `${stats}: ${monster[stats]}<br>`;
+        }
+      }
+  
+      if (player.HP <= 0) {
+        player.HP = 0;
+        document.getElementById("player-stats").innerHTML = "";
+        for (let stats in monster) {
+          document.getElementById("player-stats").innerHTML += `${stats}: ${player[stats]}<br>`;
+        }
+        document.getElementById("content").innerHTML += `<br>You Died. Last attack did ${attackDamage} damage<br>`;
+        setTimeout(() => {
+          content.innerHTML += '<button class="button" onclick="location.reload()">Try again</button>';
+        }, 3000);
+      } else {
+        setTimeout(() => {
+          document.getElementById("content").innerHTML = `${attackDamage} damage done to player, ${player.HP} HP remains.`;
+          document.getElementById("attackButton").style.visibility = "visible";
+          document.getElementById("magicButton").style.visibility = "visible";
+          document.getElementById("potionButton").style.visibility = "visible";
+        }, 3000);
+      }
+    }, 3000);
+  }
+
+  function vampireAttack() {
+    setTimeout(() => {
+      let attackDamage = Math.floor(Math.random() * 10) + monster.attackPower;
+      let attackType = Math.floor(Math.random() * 3);
+  
+      if (Math.floor(Math.random() * 10 < 2)) {
+        document.getElementById("content").innerHTML = "Enemy missed!";
+        attackDamage = 0;
+      } else {
+        if (attackType === 0) {
+          attackDamage = attackDamage + 10;
+          monster.HP += attackDamage;
+          document.getElementById("content").innerHTML = `Vampire drinks your blood, and regains ${attackDamage} points of health!`;
+        } else if (attackType === 1) {
+          document.getElementById("content").innerHTML = `Vampire casts magic!`;
+          document.getElementById("content").innerHTML += `<br><img src="assets/images/magic.png" alt="Magic">`;
+          attackDamage = attackDamage + 15;
+          monster.MP = monster.MP - 10;
+        } else {
+          document.getElementById("content").innerHTML = "Vampire attacks!";
+        }
+        player.HP = player.HP - (attackDamage - player.defence);
+        document.getElementById("player-stats").innerHTML = "";
+        document.getElementById("enemy-stats").innerHTML = "";
+        for (let stats in player) {
+          document.getElementById("player-stats").innerHTML += `${stats}: ${player[stats]}<br>`;
+        }
+        for (let stats in monster) {
+          document.getElementById("enemy-stats").innerHTML += `${stats}: ${monster[stats]}<br>`;
+        }
+      }
+  
+      if (player.HP <= 0) {
+        player.HP = 0;
+        document.getElementById("player-stats").innerHTML = "";
+        for (let stats in monster) {
+          document.getElementById("player-stats").innerHTML += `${stats}: ${player[stats]}<br>`;
+        }
+        document.getElementById("content").innerHTML += `<br>You Died. Last attack did ${attackDamage} damage<br>`;
+        setTimeout(() => {
+          content.innerHTML += '<button class="button" onclick="location.reload()">Try again</button>';
+        }, 3000);
+      } else {
+        setTimeout(() => {
+          document.getElementById("content").innerHTML = `${attackDamage} damage done to player, ${player.HP} HP remains.`;
+          document.getElementById("attackButton").style.visibility = "visible";
+          document.getElementById("magicButton").style.visibility = "visible";
+          document.getElementById("potionButton").style.visibility = "visible";
+        }, 3000);
+      }
+    }, 3000);
+  }
+
+  function demonAttack() {
+    setTimeout(() => {
+      let attackDamage = Math.floor(Math.random() * 10) + monster.attackPower;
+      let attackType = Math.floor(Math.random() * 3);
+  
+      if (Math.floor(Math.random() * 10 < 2)) {
+        document.getElementById("content").innerHTML = "Enemy missed!";
+        attackDamage = 0;
+      } else {
+        if (attackType === 0) {
+          document.getElementById("content").innerHTML = "Demon uses infernal assault!";
+          attackDamage = attackDamage + 20;
+        } else if (attackType === 1) {
+          document.getElementById("content").innerHTML = `Demon casts magic!`;
+          document.getElementById("content").innerHTML += `<br><img src="assets/images/magic.png" alt="Magic">`;
+          attackDamage = attackDamage + 15;
+          monster.MP = monster.MP - 10;
+        } else {
+          document.getElementById("content").innerHTML = "Demon attacks!";
         }
         player.HP = player.HP - (attackDamage - player.defence);
         document.getElementById("player-stats").innerHTML = "";
