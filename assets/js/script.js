@@ -258,12 +258,14 @@ function rollForBonus(){
 }
 
 function getStarted() {
+    let gameArea = document.getElementById("game");
+    let playArea = document.createElement("p");
+    playArea.id = "content";
+    gameArea.appendChild(playArea);
     document.getElementById("content").innerHTML = 'Roll the dice for stats! <br> <button class="button hidden" id="rollTheDice"><img src="assets/images/one.png" alt="Dice"></button>';
-    document.getElementById("getStarted").style.visibility = "hidden";
     document.getElementById("stats").style.visibility = "visible";
     document.getElementById("rollTheDice").style.visibility = "visible";
     document.getElementById("intro").remove();
-    document.getElementById("content").style.visibility = "visible";
     for (let stats in player) {
         document.getElementById("player-stats").innerHTML += `${stats}: ${player[stats]}<br>`;
       }
