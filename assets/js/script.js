@@ -288,7 +288,7 @@ function rollForBonus(){
       let removeElement = document.getElementById("bonusButton");
       removeElement.remove();
       let parentElement = document.getElementById("button-container");
-      let buttonHTML = '<button id="nextMonster" class="button" onclick="location.reload()">Next!</button>';
+      let buttonHTML = '<button id="nextMonster" class="button" onclick="nextMonster()">Next!</button>';
       parentElement.innerHTML += buttonHTML;
 }
 
@@ -372,14 +372,29 @@ function nextMonster() {
   if (alive.dragon === true) {
     alive.dragon = false;
     monster = vampire;
+  next();
   } else if (alive.dragon === false && alive.vampire === true) {
     alive.vampire = false;
     monster = demon;
+    next();
   } else {
     completeVictory();
   }
 };
 
-completeVictory() {
-  alert("You win!")
+function next(){
+  document.getElementById("content").innerHTML = "";
+  document.getElementById("enemy-name").innerHTML = "Vampire";
+  document.getElementById("enemy-stats").innerHTML = ""
+  document.getElementById("player-stats").innerHTML = ""
+  for (let stats in player) {
+    document.getElementById("player-stats").innerHTML += `${stats}: ${player[stats]}<br>`;
+  }
+  for (let stats in monster) {
+      document.getElementById("enemy-stats").innerHTML += `${stats}: ${monster[stats]}<br>`;
+    }
 }
+
+function completeVictory() {
+  alert("You win!")
+};
