@@ -55,7 +55,7 @@ let getStartedButton = document.getElementById('getStarted');
 getStartedButton.addEventListener('click', getStarted);
 
 function attack () {
-    let attackDamage = Math.floor(Math.random() * 10 + 1) + player.attackPower - dragon.defence;
+    let attackDamage = Math.floor(Math.random() * 10 + 1) + player.attackPower - monster.defence;
     document.getElementById("attackButton").style.visibility = "hidden";
     document.getElementById("magicButton").style.visibility = "hidden";
     document.getElementById("potionButton").style.visibility = "hidden";
@@ -63,18 +63,18 @@ function attack () {
         document.getElementById("content").innerHTML = ("you missed!")
         attackDamage = 0;
     } else {
-        dragon.HP = dragon.HP - attackDamage;
+        monster.HP = monster.HP - attackDamage;
     }
-    document.getElementById("content").innerHTML = (`${attackDamage} Attack damage done to enemy, ${dragon.HP} HP remains.`);
+    document.getElementById("content").innerHTML = (`${attackDamage} Attack damage done to enemy, ${monster.HP} HP remains.`);
     document.getElementById("player-stats").innerHTML = "";
     document.getElementById("enemy-stats").innerHTML = "";
     for (let stats in player) {
         document.getElementById("player-stats").innerHTML += `${stats}: ${player[stats]}<br>`;
       }
-      for (let stats in dragon) {
-        document.getElementById("enemy-stats").innerHTML += `${stats}: ${dragon[stats]}<br>`;
+      for (let stats in monster) {
+        document.getElementById("enemy-stats").innerHTML += `${stats}: ${monster[stats]}<br>`;
       }
-    if (dragon.HP <= 0 ) {
+    if (monster.HP <= 0 ) {
         victory();
     } else {
     monsterAttack();
@@ -94,7 +94,7 @@ function monsterAttack(){
 
 function dragonAttack() {
     setTimeout(() => {
-      let attackDamage = Math.floor(Math.random() * 10) + dragon.attackPower;
+      let attackDamage = Math.floor(Math.random() * 10) + monster.attackPower;
       let attackType = Math.floor(Math.random() * 3);
   
       if (Math.floor(Math.random() * 10 < 2)) {
@@ -108,7 +108,7 @@ function dragonAttack() {
           document.getElementById("content").innerHTML = `Dragon casts magic!`;
           document.getElementById("content").innerHTML += `<br><img src="assets/images/magic.png" alt="Magic">`;
           attackDamage = attackDamage + 15;
-          dragon.MP = dragon.MP - 10;
+          monster.MP = monster.MP - 10;
         } else {
           document.getElementById("content").innerHTML = "Dragon attacks!";
         }
@@ -118,15 +118,15 @@ function dragonAttack() {
         for (let stats in player) {
           document.getElementById("player-stats").innerHTML += `${stats}: ${player[stats]}<br>`;
         }
-        for (let stats in dragon) {
-          document.getElementById("enemy-stats").innerHTML += `${stats}: ${dragon[stats]}<br>`;
+        for (let stats in monster) {
+          document.getElementById("enemy-stats").innerHTML += `${stats}: ${monster[stats]}<br>`;
         }
       }
   
       if (player.HP <= 0) {
         player.HP = 0;
         document.getElementById("player-stats").innerHTML = "";
-        for (let stats in dragon) {
+        for (let stats in monster) {
           document.getElementById("player-stats").innerHTML += `${stats}: ${player[stats]}<br>`;
         }
         document.getElementById("content").innerHTML += `<br>You Died. Last attack did ${attackDamage} damage<br>`;
@@ -155,21 +155,21 @@ function magicAttack () {
     if (Math.floor(Math.random() * 10 < 2)) {
         document.getElementById("content").innerHTML = ("Critical hit!");
         attackDamage = attackDamage + 20;
-        dragon.HP = dragon.HP - attackDamage;
+        monster.HP = monster.HP - attackDamage;
     } else {
-        dragon.HP = dragon.HP - attackDamage;
+        monster.HP = monster.HP - attackDamage;
     }
     player.MP = player.MP - 10;
-    document.getElementById("content").innerHTML = (`${attackDamage} Magic damage done to enemy, ${dragon.HP} HP remains. You have ${player.MP} MP remaining.`);
+    document.getElementById("content").innerHTML = (`${attackDamage} Magic damage done to enemy, ${monster.HP} HP remains. You have ${player.MP} MP remaining.`);
     document.getElementById("player-stats").innerHTML = "";
     document.getElementById("enemy-stats").innerHTML = "";
     for (let stats in player) {
         document.getElementById("player-stats").innerHTML += `${stats}: ${player[stats]}<br>`;
       }
-      for (let stats in dragon) {
-        document.getElementById("enemy-stats").innerHTML += `${stats}: ${dragon[stats]}<br>`;
+      for (let stats in monster) {
+        document.getElementById("enemy-stats").innerHTML += `${stats}: ${monster[stats]}<br>`;
       }
-    if (dragon.HP <= 0 ) {
+    if (monster.HP <= 0 ) {
         victory();
     } else {
     monsterAttack();
@@ -198,8 +198,8 @@ function takePotion () {
     for (let stats in player) {
         document.getElementById("player-stats").innerHTML += `${stats}: ${player[stats]}<br>`;
       }
-      for (let stats in dragon) {
-        document.getElementById("enemy-stats").innerHTML += `${stats}: ${dragon[stats]}<br>`;
+      for (let stats in monster) {
+        document.getElementById("enemy-stats").innerHTML += `${stats}: ${monster[stats]}<br>`;
       }
 }
 
@@ -237,8 +237,8 @@ function rollTheDiceStats() {
     for (let stats in player) {
       document.getElementById("player-stats").innerHTML += `${stats}: ${player[stats]}<br>`;
     }
-    for (let stats in dragon) {
-        document.getElementById("enemy-stats").innerHTML += `${stats}: ${dragon[stats]}<br>`;
+    for (let stats in monster) {
+        document.getElementById("enemy-stats").innerHTML += `${stats}: ${monster[stats]}<br>`;
       }
       document.getElementById("content").innerHTML += `<br>Below are buttons for attack, magic and potion. Your new stats are below.`;
   }
@@ -276,8 +276,8 @@ function rollForBonus(){
     for (let stats in player) {
         document.getElementById("player-stats").innerHTML += `${stats}: ${player[stats]}<br>`;
       }
-      for (let stats in dragon) {
-        document.getElementById("enemy-stats").innerHTML += `${stats}: ${dragon[stats]}<br>`;
+      for (let stats in monster) {
+        document.getElementById("enemy-stats").innerHTML += `${stats}: ${monster[stats]}<br>`;
       }
       let removeElement = document.getElementById("bonusButton");
       removeElement.remove();
@@ -299,8 +299,8 @@ function getStarted() {
     for (let stats in player) {
         document.getElementById("player-stats").innerHTML += `${stats}: ${player[stats]}<br>`;
       }
-    for (let stats in dragon) {
-        document.getElementById("enemy-stats").innerHTML += `${stats}: ${dragon[stats]}<br>`;
+    for (let stats in monster) {
+        document.getElementById("enemy-stats").innerHTML += `${stats}: ${monster[stats]}<br>`;
       }
       document.getElementById("rollTheDice").addEventListener("click", rollTheDiceStats);
       let removeElement = document.getElementById("getStarted");
@@ -318,10 +318,10 @@ playButton.addEventListener('click', function() {
   });
 
 function victory() {
-    dragon.HP = 0;
+    monster.HP = 0;
     document.getElementById("enemy-stats").innerHTML = "";
-    for (let stats in dragon) {
-        document.getElementById("enemy-stats").innerHTML += `${stats}: ${dragon[stats]}<br>`;
+    for (let stats in monster) {
+        document.getElementById("enemy-stats").innerHTML += `${stats}: ${monster[stats]}<br>`;
       }
     document.getElementById("content").innerHTML = `You beat the Dragon! <br> Now roll for a bonus.
     <table>
