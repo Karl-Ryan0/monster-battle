@@ -520,7 +520,9 @@ function next(){
 }
 
 function completeVictory() {
-  alert("You win!")
+  document.getElementById("content").innerHTML = ""
+  alert("You win!");
+  location.reload();
 }
 
 function easyMode() {
