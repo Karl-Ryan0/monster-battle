@@ -213,7 +213,7 @@ function dragonAttack() {
         attackDamage = 0;
       } else {
         if (attackType === 0) {
-          document.getElementById("content").innerHTML = "Demon uses infernal assault!";
+          document.getElementById("content").innerHTML = "Demon uses hellfire!";
           attackDamage = attackDamage + 20;
         } else if (attackType === 1) {
           document.getElementById("content").innerHTML = `Demon casts magic!`;
@@ -351,7 +351,7 @@ function rollTheDiceStats() {
     for (let stats in monster) {
         document.getElementById("enemy-stats").innerHTML += `${stats}: ${monster[stats]}<br>`;
       }
-      document.getElementById("content").innerHTML += `<br>Below are buttons for attack, magic and potion. Your new stats are below.`;
+      document.getElementById("content").innerHTML += `<br>Above are buttons for attack, magic and potion. Your new stats are below.`;
   }
 
 function rollForBonus(){

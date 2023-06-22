@@ -45,6 +45,10 @@ padding: 0;
     background-color: #C71585;
 }
 
+#difficulty button{
+    width: 75px;
+}
+
 #getStarted, #rollTheDice, #playButton {
     position: sticky;
     left: 44%;
