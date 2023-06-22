@@ -96,9 +96,6 @@ function attack () {
 
 function monsterAttack(monster) {
   switch (monster) {
-    case 'dragon':
-      dragonAttack();
-      break;
     case 'vampire':
       vampireAttack();
       break;
@@ -106,7 +103,7 @@ function monsterAttack(monster) {
       demonAttack();
       break;
     default:
-      throw new Error('Invalid monster');
+      dragonAttack();
   }
 }
 
@@ -238,9 +235,7 @@ function dragonAttack() {
   }
 
 function magicAttack () {
-    document.getElementById("attackButton").style.visibility = "hidden";
-    document.getElementById("magicButton").style.visibility = "hidden";
-    document.getElementById("potionButton").style.visibility = "hidden";
+    document.getElementById("button").style.visibility = "hidden";
     if (player.MP <= 0) {
         document.getElementById("content").innerHTML = ('You have mo magic power left!')
     } else {
