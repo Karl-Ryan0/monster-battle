@@ -136,15 +136,7 @@ function dragonAttack() {
       }
   
       if (player.HP <= 0) {
-        player.HP = 0;
-        document.getElementById("player-stats").innerHTML = "";
-        for (let stats in monster) {
-          document.getElementById("player-stats").innerHTML += `${stats}: ${player[stats]}<br>`;
-        }
-        document.getElementById("content").innerHTML += `<br>You Died. Last attack did ${attackDamage} damage<br>`;
-        setTimeout(() => {
-          content.innerHTML += '<button class="button" onclick="location.reload()">Try again</button>';
-        }, 3000);
+        gameOver();
       } else {
         setTimeout(() => {
           document.getElementById("content").innerHTML = `${attackDamage} damage done to player, ${player.HP} HP remains.`;
@@ -189,15 +181,7 @@ function dragonAttack() {
       }
   
       if (player.HP <= 0) {
-        player.HP = 0;
-        document.getElementById("player-stats").innerHTML = "";
-        for (let stats in monster) {
-          document.getElementById("player-stats").innerHTML += `${stats}: ${player[stats]}<br>`;
-        }
-        document.getElementById("content").innerHTML += `<br>You Died. Last attack did ${attackDamage} damage<br>`;
-        setTimeout(() => {
-          content.innerHTML += '<button class="button" onclick="location.reload()">Try again</button>';
-        }, 3000);
+        gameOver();
       } else {
         setTimeout(() => {
           document.getElementById("content").innerHTML = `${attackDamage} damage done to player, ${player.HP} HP remains.`;
@@ -241,15 +225,7 @@ function dragonAttack() {
       }
   
       if (player.HP <= 0) {
-        player.HP = 0;
-        document.getElementById("player-stats").innerHTML = "";
-        for (let stats in monster) {
-          document.getElementById("player-stats").innerHTML += `${stats}: ${player[stats]}<br>`;
-        }
-        document.getElementById("content").innerHTML += `<br>You Died. Last attack did ${attackDamage} damage<br>`;
-        setTimeout(() => {
-          content.innerHTML += '<button class="button" onclick="location.reload()">Try again</button>';
-        }, 3000);
+        gameOver();
       } else {
         setTimeout(() => {
           document.getElementById("content").innerHTML = `${attackDamage} damage done to player, ${player.HP} HP remains.`;
@@ -553,4 +529,16 @@ function hardMode () {
     demon[key] = Math.ceil(demon[key] * 1.2);
   }
   getStarted();
+}
+
+function gameOver() {
+  player.HP = 0;
+        document.getElementById("player-stats").innerHTML = "";
+        for (let stats in monster) {
+          document.getElementById("player-stats").innerHTML += `${stats}: ${player[stats]}<br>`;
+        }
+        document.getElementById("content").innerHTML += `<br>You Died. Last attack did ${attackDamage} damage<br>`;
+        setTimeout(() => {
+          content.innerHTML += '<button class="button" onclick="location.reload()">Try again</button>';
+        }, 3000);
 }
