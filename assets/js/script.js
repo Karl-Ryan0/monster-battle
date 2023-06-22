@@ -94,13 +94,19 @@ function attack () {
     }
 }
 
-function monsterAttack(){
-  if (monster = dragon) {
+function monsterAttack(monster) {
+  switch (monster) {
+    case 'dragon':
       dragonAttack();
-  } else if (monster = vampire) {
+      break;
+    case 'vampire':
       vampireAttack();
-  } else {
-    demonAttack();
+      break;
+    case 'demon':
+      demonAttack();
+      break;
+    default:
+      throw new Error('Invalid monster');
   }
 }
 
