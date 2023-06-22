@@ -3,7 +3,7 @@ let player = {
     MP: 100,
     attackPower: 6,
     maxHP: 100,
-    magicPower: 800,
+    magicPower: 8,
     defence: 6,
     maxMP: 1000,
 }
@@ -68,10 +68,8 @@ let hard = document.getElementById('hard-mode');
 hard.addEventListener('click', hardMode);
 
 function attack () {
+    buttonsToggle();
     let attackDamage = Math.floor(Math.random() * 10 + 1) + player.attackPower - monster.defence;
-    document.getElementById("attackButton").style.visibility = "hidden";
-    document.getElementById("magicButton").style.visibility = "hidden";
-    document.getElementById("potionButton").style.visibility = "hidden";
     if (Math.floor(Math.random() * 10 < 2)) {
         document.getElementById("content").innerHTML = ("you missed!")
         attackDamage = 0;
@@ -137,13 +135,13 @@ function dragonAttack() {
           document.getElementById("enemy-stats").innerHTML += `${stats}: ${monster[stats]}<br>`;
         }
       }
-  
+      buttonsToggle();
       if (player.HP <= 0) {
         gameOver();
       } else {
         setTimeout(() => {
           document.getElementById("content").innerHTML = `${attackDamage} damage done to player, ${player.HP} HP remains.`;
-          restoreButtons();
+          buttonsToggle();
         }, 3000);
       }
     }, 3000);
@@ -186,7 +184,7 @@ function dragonAttack() {
       } else {
         setTimeout(() => {
           document.getElementById("content").innerHTML = `${attackDamage} damage done to player, ${player.HP} HP remains.`;
-          restoreButtons();
+          buttonsToggle();;
         }, 3000);
       }
     }, 3000);
@@ -228,14 +226,14 @@ function dragonAttack() {
       } else {
         setTimeout(() => {
           document.getElementById("content").innerHTML = `${attackDamage} damage done to player, ${player.HP} HP remains.`;
-          restoreButtons();
+          buttonsToggle();;
         }, 3000);
       }
     }, 3000);
   }
 
 function magicAttack () {
-    document.getElementById("button").style.visibility = "hidden";
+    buttonsToggle();
     if (player.MP <= 0) {
         document.getElementById("content").innerHTML = ('You have mo magic power left!')
     } else {
@@ -538,8 +536,14 @@ function gameOver() {
         }, 3000);
 }
 
-function restoreButtons() {
-  document.getElementById("attackButton").style.visibility = "visible";
-  document.getElementById("magicButton").style.visibility = "visible";
-  document.getElementById("potionButton").style.visibility = "visible";
+function buttonsToggle() {
+  if (document.getElementById("attackButton").style.visibility = "visible") {
+    document.getElementById("attackButton").style.visibility = "hidden";
+    document.getElementById("magicButton").style.visibility = "hidden";
+    document.getElementById("potionButton").style.visibility = "hidden";
+  } else {
+    document.getElementById("attackButton").style.visibility = "visible";
+    document.getElementById("magicButton").style.visibility = "visible";
+    document.getElementById("potionButton").style.visibility = "visible";
+  }
 }
