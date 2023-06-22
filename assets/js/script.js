@@ -58,8 +58,14 @@ magicButton.addEventListener('click', magicAttack);
 let potionButton = document.getElementById('potionButton');
 potionButton.addEventListener('click', takePotion);
 
-let getStartedButton = document.getElementById('getStarted');
-getStartedButton.addEventListener('click', getStarted);
+let easy = document.getElementById('easy-mode');
+easy.addEventListener('click', easyMode);
+
+let normal = document.getElementById('normal-mode');
+normal.addEventListener('click', normalMode);
+
+let hard = document.getElementById('hard-mode');
+hard.addEventListener('click', hardMode);
 
 function attack () {
     let attackDamage = Math.floor(Math.random() * 10 + 1) + player.attackPower - monster.defence;
@@ -398,6 +404,7 @@ function rollForBonus(){
 }
 
 function getStarted() {
+    document.getElementById("difficulty").remove();
     username = window.prompt("Enter your name:");
     document.getElementById("username").innerHTML = username;
     monster = dragon;
@@ -416,8 +423,6 @@ function getStarted() {
         document.getElementById("enemy-stats").innerHTML += `${stats}: ${monster[stats]}<br>`;
       }
       document.getElementById("rollTheDice").addEventListener("click", rollTheDiceStats);
-      let removeElement = document.getElementById("getStarted");
-      removeElement.remove();
 }
 
 playButton.addEventListener('click', function() {
@@ -495,7 +500,7 @@ function nextMonster() {
   } else if (alive.vampire === false && alive.demon === true) {
     alive.demon = false;
   }
-};
+}
 
 function next(){
   document.getElementById("content").innerHTML = `Get ready to fight the ${monsterName}!`;
@@ -516,4 +521,34 @@ function next(){
 
 function completeVictory() {
   alert("You win!")
-};
+}
+
+function easyMode() {
+  for (let key in dragon) {
+    dragon[key] = Math.floor(dragon[key] * 0.8);
+  }
+  for (let key in vampire) {
+    vampire[key] = Math.floor(vampire[key] * 0.8);
+  }
+  for (let key in demon) {
+    demon[key] = Math.floor(demon[key] * 0.8);
+  }
+  getStarted();
+}
+
+function normalMode() {
+  getStarted();
+}
+
+function hardMode () {
+  for (let key in dragon) {
+    dragon[key] = Math.ceil(dragon[key] * 1.2);
+  }
+  for (let key in vampire) {
+    vampire[key] = Math.ceil(vampire[key] * 1.2);
+  }
+  for (let key in demon) {
+    demon[key] = Math.ceil(demon[key] * 1.2);
+  }
+  getStarted();
+}
