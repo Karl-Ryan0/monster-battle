@@ -140,9 +140,7 @@ function dragonAttack() {
       } else {
         setTimeout(() => {
           document.getElementById("content").innerHTML = `${attackDamage} damage done to player, ${player.HP} HP remains.`;
-          document.getElementById("attackButton").style.visibility = "visible";
-          document.getElementById("magicButton").style.visibility = "visible";
-          document.getElementById("potionButton").style.visibility = "visible";
+          restoreButtons();
         }, 3000);
       }
     }, 3000);
@@ -185,9 +183,7 @@ function dragonAttack() {
       } else {
         setTimeout(() => {
           document.getElementById("content").innerHTML = `${attackDamage} damage done to player, ${player.HP} HP remains.`;
-          document.getElementById("attackButton").style.visibility = "visible";
-          document.getElementById("magicButton").style.visibility = "visible";
-          document.getElementById("potionButton").style.visibility = "visible";
+          restoreButtons();
         }, 3000);
       }
     }, 3000);
@@ -229,9 +225,7 @@ function dragonAttack() {
       } else {
         setTimeout(() => {
           document.getElementById("content").innerHTML = `${attackDamage} damage done to player, ${player.HP} HP remains.`;
-          document.getElementById("attackButton").style.visibility = "visible";
-          document.getElementById("magicButton").style.visibility = "visible";
-          document.getElementById("potionButton").style.visibility = "visible";
+          restoreButtons();
         }, 3000);
       }
     }, 3000);
@@ -541,4 +535,10 @@ function gameOver() {
         setTimeout(() => {
           content.innerHTML += '<button class="button" onclick="location.reload()">Try again</button>';
         }, 3000);
+}
+
+function restoreButtons() {
+  document.getElementById("attackButton").style.visibility = "visible";
+  document.getElementById("magicButton").style.visibility = "visible";
+  document.getElementById("potionButton").style.visibility = "visible";
 }
