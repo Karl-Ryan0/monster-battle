@@ -4,51 +4,84 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Include an external CSS file -->
+
     <title>Monster Battle</title>
 </head>
 <body>
     <div id="logo">
         <img src="assets/images/logo.png" alt="Logo image">
+        <!-- Display a logo image -->
     </div>
-    <button class="button" id ="playButton"><img src="assets/images/music.png" alt="Music"></button>
+
+    <button class="button" id="playButton">
+        <img src="assets/images/music.png" alt="Music">
+    </button>
+    <!-- Button with an image for music -->
+
     <audio id="music" src="assets/music/music.mp3"></audio>
-        <section id ="game">
-            <p id ="intro">Greetings traveller to my game! Here are the rules. You start with various stats that you will see below. as well as enemy stats. You'll roll the 
-                dice to be given a stat bonus, making your stats increase! Enemies are unaffected by this. Once the battle starts, you'll have some options, but you only have 3 
-                potions to start with, and remember, magic attacks use up MP. <br> When the round is over, you'll get a chance for a bonus before moving onto the next monster, there
-                are three monsters in all. Choose your difficulty below!
-            </p>
-            
-            <div class = "button-container" id = "difficulty">
+    <!-- Audio element for background music -->
+
+    <section id="game">
+        <p id="intro">
+            Greetings traveller to my game! Here are the rules. You start with various stats that you will see below,
+            as well as enemy stats. You'll roll the dice to be given a stat bonus, making your stats increase! Enemies
+            are unaffected by this. Once the battle starts, you'll have some options, but you only have 3 potions to
+            start with, and remember, magic attacks use up MP. <br> When the round is over, you'll get a chance for a
+            bonus before moving onto the next monster, there are three monsters in all. Choose your difficulty below!
+        </p>
+
+        <div class="button-container" id="difficulty">
             <button class="button" id="easy-mode">Easy!</button>
+            <!-- Button for selecting easy difficulty mode -->
+
             <button class="button" id="normal-mode">Normal!</button>
+            <!-- Button for selecting normal difficulty mode -->
+
             <button class="button" id="hard-mode">Hard!</button>
+            <!-- Button for selecting hard difficulty mode -->
+        </div>
 
-            </div>
-            <div class = "button-container" id = "button-container">
-                <button class="button hidden" id ="attackButton"><img src="assets/images/attack.png" alt="Attack"></button>
-                <button class="button hidden" id ="magicButton"><img src="assets/images/magic.png" alt="Magic"></button>
-                <button class="button hidden" id ="potionButton"><img src="assets/images/potion.png" alt="Potion"></button>
+        <div class="button-container" id="button-container">
+            <button class="button hidden" id="attackButton">
+                <img src="assets/images/attack.png" alt="Attack">
+            </button>
+            <!-- Button with an image for attack -->
 
-            </div>
-        </section>
-        <section id="stats" class="hidden">
-            <div>
-                <h1 id = "username"></h1>
-                <div id ="player-stats">
-                
-                </div>
-            </div>
-            <div>
-                <h1 id="enemy-name">Dragon</h1>
-                <div id ="enemy-stats">
-                
-                </div>
-            </div>
+            <button class="button hidden" id="magicButton">
+                <img src="assets/images/magic.png" alt="Magic">
+            </button>
+            <!-- Button with an image for magic -->
 
-        </section>
+            <button class="button hidden" id="potionButton">
+                <img src="assets/images/potion.png" alt="Potion">
+            </button>
+            <!-- Button with an image for potion -->
+        </div>
+    </section>
 
-    
+    <section id="stats" class="hidden">
+        <!-- Section for displaying player and enemy stats -->
+        <div>
+            <h1 id="username"></h1>
+            <!-- Heading for the player's name -->
+
+            <div id="player-stats">
+                <!-- Container for player's stats -->
+            </div>
+        </div>
+
+        <div>
+            <h1 id="enemy-name">Dragon</h1>
+            <!-- Heading for the enemy's name -->
+
+            <div id="enemy-stats">
+                <!-- Container for enemy's stats -->
+            </div>
+        </div>
+    </section>
+
     <script src="assets/js/script.js"></script>
+    <!-- Include an external JavaScript file -->
 </body>
 </html>
