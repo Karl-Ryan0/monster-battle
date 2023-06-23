@@ -231,9 +231,17 @@ table {
         margin: 1% 15%;
         padding: 2%;
     }
-
     #game {
         margin: 0;
         padding: 0;
+    }
+    .button {
+        margin-top: 0;
+        height: 90px;
+        width: 90px;
+    }
+
+    #difficulty > button {
+        width: 110px;
     }
 }
