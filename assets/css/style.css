@@ -150,6 +150,17 @@ table {
     font-weight: bolder;
 }
 
+    #inputDialog {
+        color: royalblue;
+        background-color: peachpuff;
+        border: 1px solid royalblue;
+        border-radius: 10px;
+        height: 40px;
+        place-items: center;
+        margin: 0 5%;
+        padding-top: 2%;
+}
+
 @media screen and (min-width: 650px) {
     body {
         background: url(../images/background.png);
