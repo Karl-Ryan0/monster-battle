@@ -61,12 +61,6 @@ p {
     width: 75px;
 }
 
-/* Sticky positioning for specific elements */
-#getStarted, #rollTheDice, #playButton {
-    position: sticky;
-    left: 44%;
-}
-
 /* CSS class to hide elements */
 .hidden {
     visibility: hidden;
