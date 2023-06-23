@@ -390,8 +390,7 @@ function rollForBonus(){
 }
 
 function getStarted() {
-  document.getElementById("difficulty").remove();
-  while (true) {
+  /*while (true) {
     username = window.prompt("Enter your name:");
 
     if (/^[a-zA-Z]+$/.test(username) && username.length <= 15) {
@@ -404,7 +403,7 @@ function getStarted() {
   }
   if (!/^[a-zA-Z]+$/.test(username) || username.length > 15) {
     return;
-  }
+  }*/
 
   document.getElementById("username").innerHTML = username;
   monster = dragon;
@@ -558,11 +557,11 @@ for (let key in vampire) {
 for (let key in demon) {
   demon[key] = Math.floor(demon[key] * 0.8);
 }
-getStarted();
+nameEntry();
 }
 
 function normalMode() {
-getStarted();
+nameEntry();
 }
 
 function hardMode () {
@@ -575,7 +574,7 @@ for (let key in vampire) {
 for (let key in demon) {
   demon[key] = Math.ceil(demon[key] * 1.2);
 }
-getStarted();
+nameEntry();
 }
 
 function gameOver() {
@@ -596,4 +595,29 @@ if (document.getElementById("button-container").style.visibility === "visible") 
 } else {
   document.getElementById("button-container").style.visibility = "visible";
 }
+}
+
+function nameEntry() {
+  document.getElementById("difficulty").remove();
+  
+  let inputDialog = document.getElementById("inputDialog");
+  let usernameInput = document.getElementById("usernameInput");
+  let submitBtn = document.getElementById("submitBtn");
+  inputDialog.style.display = "block";
+  submitBtn.addEventListener("click", handleUsernameInput);
+
+  function handleUsernameInput() {
+    username = usernameInput.value.trim();
+    if (/^[a-zA-Z]+$/.test(username) && username.length <= 20) {
+      inputDialog.style.display = "none";
+      document.getElementById("username").innerHTML = username;
+    } else if (username.length > 20) {
+      alert("Input exceeds maximum length of 20 characters. Please enter a shorter name.");
+      return;
+    } else {
+      alert("Invalid input. Please enter text only.");
+      return;
+    }
+    getStarted();
+  }
 }
