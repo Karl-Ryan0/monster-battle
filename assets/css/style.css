@@ -141,3 +141,42 @@ td > img {
         background-size: 100vw 100vh;
     }
 }
+
+@media only screen and (max-width: 767px) and (orientation: landscape) {
+    img {
+        margin-top: 0;
+        width: 70%;
+    }
+    #content > img {
+        width: 40px;
+    }
+    #logo > img {
+        height: 30px;
+    }
+    #intro {
+        padding: 0;
+        line-height: 1;
+    }
+    #logo {
+        display: flex;
+    }
+    #playButton {
+        position: sticky;
+        left: 10%;
+        height: 30px;
+        width: 30px;
+    }
+    #game {
+        margin: 0;
+    }
+    .button {
+        margin-top: 0;
+        height: 45px;
+    }
+    h1 {
+        margin: 3px;
+    }
+    #content {
+        min-height: 7em;
+    }
+}
