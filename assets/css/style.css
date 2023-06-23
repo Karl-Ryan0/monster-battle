@@ -150,6 +150,10 @@ table {
         background: url(../images/background.png);
         background-size: 100vw 100vh;
     }
+    #button-container > button, #content > button, #content > img {
+        width: 90px;
+        height: 90px;
+    }
 }
 
 @media only screen and (max-width: 767px) and (orientation: landscape) {
