@@ -3,7 +3,7 @@ let player = {
   MP: 100,
   attackPower: 6,
   maxHP: 100,
-  magicPower: 8,
+  magicPower: 800,
   defence: 6,
   maxMP: 1000,
 }
@@ -41,7 +41,7 @@ vampire: true,
 demon: true,
 }
 
-let monster;
+let monster = dragon;
 let monsterName = "Dragon"
 let username;
 let potion = 3;
@@ -94,10 +94,10 @@ function attack () {
 
 function monsterAttack(monster) {
 switch (monster) {
-  case 'vampire':
+  case vampire:
     vampireAttack();
     break;
-  case 'demon':
+  case demon:
     demonAttack();
     break;
   default:
