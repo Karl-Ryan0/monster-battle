@@ -41,7 +41,7 @@ vampire: true,
 demon: true,
 }
 
-let monster = dragon;
+let monster = "";
 let monsterName = "Dragon"
 let username;
 let potion = 3;
@@ -93,17 +93,25 @@ function attack () {
 }
 
 function monsterAttack(monster) {
-switch (monster) {
-  case vampire:
-    vampireAttack();
-    break;
-  case demon:
-    demonAttack();
-    break;
-  default:
-    dragonAttack();
+  switch (monster) {
+    case 'dragon':
+      dragonAttack();
+      break;
+    case 'vampire':
+      vampireAttack();
+      break;
+      case 'demon':
+        demonAttack();
+    default:
+      throw new Error('Invalid monster');
+  }
+  try {
+    monsterAttack('dragon'); // Call monsterAttack function with 'dragon' argument
+  } catch (error) {
+    console.error(error.message); // Handle the error by logging the error message
+  }
 }
-}
+
 
 function dragonAttack() {
   setTimeout(() => {
@@ -372,7 +380,7 @@ function getStarted() {
   document.getElementById("difficulty").remove();
   username = window.prompt("Enter your name:");
   document.getElementById("username").innerHTML = username;
-  monster = dragon;
+  monster = "dragon";
   let gameArea = document.getElementById("game");
   let playArea = document.createElement("p");
   playArea.id = "content";
