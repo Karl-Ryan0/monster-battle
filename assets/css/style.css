@@ -110,6 +110,10 @@ td > img {
     width: 20%;
 }
 
+#rollTheDice {
+    margin-top: 15%;
+}
+
 table {
     margin-left: auto;
     margin-right: auto;
@@ -131,6 +135,8 @@ table {
     border: 1px solid royalblue;
     border-radius: 10px;
     line-height: 18px;
+    margin: 5%;
+    padding: 2%;
 }
 
 /* Styling for the intro container */
@@ -144,15 +150,36 @@ table {
     font-weight: bolder;
 }
 
-/* Media query for screens with minimum width of 650px */
 @media screen and (min-width: 650px) {
     body {
         background: url(../images/background.png);
         background-size: 100vw 100vh;
     }
-    #button-container > button, #content > button, #content > img {
+}
+
+/* Media query for screens with minimum width of 650px */
+@media screen and (min-width: 650px) and (orientation: portrait) {
+
+    .button-container > button, #content > button, #content > img {
         width: 90px;
         height: 90px;
+    }
+    td > img {
+        width: 30%;
+    }
+    #stats {
+        margin: 5%;
+        padding: 2%;
+        font-size: larger;
+    }
+    #content {
+        font-size: larger;
+        min-height: 15.5em;
+        padding: 10px;
+    }
+    #intro{
+        margin: 10% 5%;
+        font-size: larger;
     }
 }
 
@@ -184,6 +211,15 @@ table {
     }
     #content {
         min-height: 7em;
+    }
+    #stats {
+        border-radius: 10px;
+        line-height: 18px;
+        margin: 1%;
+        padding: 1%;
+    }
+    #rollTheDice {
+        margin-top: 5%;
     }
 }
 
