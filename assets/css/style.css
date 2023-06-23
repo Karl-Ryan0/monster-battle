@@ -77,7 +77,7 @@ img {
 
 /* Styling for the content container */
 #content {
-    min-height: 12em;
+    min-height: 13em;
     background-color: white;
     border-radius: 30px;
     color: royalblue;
@@ -111,7 +111,7 @@ td > img {
 }
 
 #rollTheDice {
-    margin-top: 15%;
+    margin-top: 5%;
 }
 
 table {
@@ -135,8 +135,8 @@ table {
     border: 1px solid royalblue;
     border-radius: 10px;
     line-height: 18px;
-    margin: 5%;
-    padding: 2%;
+    margin: 2% 2% 0 2%;
+    padding: 1%;
 }
 
 /* Styling for the intro container */
@@ -218,13 +218,22 @@ table {
         margin: 1%;
         padding: 1%;
     }
-    #rollTheDice {
-        margin-top: 5%;
-    }
 }
 
 @media only screen and (max-width: 400px) {
     .button-container {
         gap: 8%;
+    }
+}
+
+@media only screen and (min-width: 1366px) and (min-height: 768px) {
+    #stats, #intro, #content{
+        margin: 1% 15%;
+        padding: 2%;
+    }
+
+    #game {
+        margin: 0;
+        padding: 0;
     }
 }
