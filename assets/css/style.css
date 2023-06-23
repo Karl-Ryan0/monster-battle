@@ -231,6 +231,11 @@ table {
         margin: 1% 15%;
         padding: 2%;
     }
+    body{
+        background-size: 80%;
+        background-repeat: no-repeat;
+        background-position: center top;
+    }
     #game {
         margin: 0;
         padding: 0;
