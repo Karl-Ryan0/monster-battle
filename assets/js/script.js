@@ -342,31 +342,38 @@ function rollTheDiceStats() {
 function rollForBonus(){
   let dice = Math.floor(Math.random() * 6 + 1);
   document.getElementById("content").innerHTML = `You rolled a ${dice}!`;
-  if (dice == 1) {
+  switch (dice) {
+    case 1:
       document.getElementById("content").innerHTML += `<img src="assets/images/one.png" alt="Dice">`;
-      document.getElementById("content").innerHTML += (`Your bonus is 2 more potions!`)
-      potion = potion +2;
-  } else if (dice == 2) {
+      document.getElementById("content").innerHTML += (`Your bonus is 2 more potions!`);
+      potion += 2;
+      break;
+    case 2:
       document.getElementById("content").innerHTML += `<img src="assets/images/two.png" alt="Dice">`;
-      document.getElementById("content").innerHTML += (`Your bonus is full HP`)
+      document.getElementById("content").innerHTML += (`Your bonus is full HP`);
       player.HP = player.maxHP;
-  } else if (dice == 3) {
+      break;
+    case 3:
       document.getElementById("content").innerHTML += `<img src="assets/images/three.png" alt="Dice">`;
-      document.getElementById("content").innerHTML += (`Your bonus is full MP`)
+      document.getElementById("content").innerHTML += (`Your bonus is full MP`);
       player.MP = player.maxMP;
-  } else if (dice == 4) {
+      break;
+    case 4:
       document.getElementById("content").innerHTML += `<img src="assets/images/four.png" alt="Dice">`;
-      document.getElementById("content").innerHTML += (`Your bonus is +10 attack power`)
-      player.attackPower = player.attackPower + 10;
-  } else if (dice == 5) {
+      document.getElementById("content").innerHTML += (`Your bonus is +10 attack power`);
+      player.attackPower += 10;
+      break;
+    case 5:
       document.getElementById("content").innerHTML += `<img src="assets/images/five.png" alt="Dice">`;
-      document.getElementById("content").innerHTML += (`Your bonus is +5 magic power`)
-      player.magicPower = player.magicPower + 5;
-  } else {
+      document.getElementById("content").innerHTML += (`Your bonus is +5 magic power`);
+      player.magicPower += 5;
+      break;
+    default:
       document.getElementById("content").innerHTML += `<img src="assets/images/six.png" alt="Dice">`;
-      document.getElementById("content").innerHTML += (`Your bonus is double defence`)
-      player.defence = player.defence * 2;
-  } 
+      document.getElementById("content").innerHTML += (`Your bonus is double defence`);
+      player.defence *= 2;
+      break;
+  }
   document.getElementById("player-stats").innerHTML = "";
   document.getElementById("enemy-stats").innerHTML = "";
   for (let stats in player) {
@@ -384,7 +391,14 @@ function rollForBonus(){
 
 function getStarted() {
   document.getElementById("difficulty").remove();
-  username = window.prompt("Enter your name:");
+  let username = window.prompt("Enter your name:");
+  let nameCheck = /^[a-zA-Z\s]+$/;
+  let maxLength = 15;
+
+  while (!nameCheck.test(username.trim())) {
+    username = window.prompt("Please enter a valid name without numbers or special characters:");
+  }
+
   document.getElementById("username").innerHTML = username;
   monster = dragon;
   let gameArea = document.getElementById("game");
