@@ -36,15 +36,18 @@ p {
     flex-wrap: wrap;
 }
 
+.button, #content, #stats, #intro, #inputDialog {
+    color: royalblue;
+    background-color: peachpuff;
+    border: 1px solid royalblue;
+    border-radius: 20px;
+}
+
 /* Styling for buttons */
 .button {
     margin-top: 5px;
     font-size: large;
     font-weight: bold;
-    color: royalblue;
-    background-color: peachpuff;
-    border: 1px solid royalblue;
-    border-radius: 10px;
     width: 55px;
     height: 55px;
     cursor: pointer;
@@ -78,10 +81,6 @@ img {
 /* Styling for the content container */
 #content {
     min-height: 13em;
-    background-color: white;
-    border-radius: 30px;
-    color: royalblue;
-    border: 1px solid royalblue;
     padding: 7px;
     margin: 0;
 }
@@ -130,10 +129,6 @@ table {
 #stats {
     display: flex;
     justify-content: space-around;
-    color: royalblue;
-    background-color: peachpuff;
-    border: 1px solid royalblue;
-    border-radius: 10px;
     line-height: 18px;
     margin: 2% 2% 0 2%;
     padding: 1%;
@@ -141,24 +136,16 @@ table {
 
 /* Styling for the intro container */
 #intro {
-    background-color: peachpuff;
-    color: royalblue;
-    border-radius: 10px;
-    border: 1px solid royalblue;
     padding: 5% 5%;
     line-height: 1.25;
     font-weight: bolder;
 }
 
-    #inputDialog {
-        color: royalblue;
-        background-color: peachpuff;
-        border: 1px solid royalblue;
-        border-radius: 10px;
-        height: 40px;
-        place-items: center;
-        margin: 0 5%;
-        padding-top: 2%;
+#inputDialog {
+    height: 40px;
+    place-items: center;
+    margin: 0 5%;
+    padding-top: 2%;
 }
 
 @media screen and (min-width: 650px) {
