@@ -391,12 +391,19 @@ function rollForBonus(){
 
 function getStarted() {
   document.getElementById("difficulty").remove();
-  let username = window.prompt("Enter your name:");
-  let nameCheck = /^[a-zA-Z\s]+$/;
-  let maxLength = 15;
+  while (true) {
+    username = window.prompt("Enter your name:");
 
-  while (!nameCheck.test(username.trim())) {
-    username = window.prompt("Please enter a valid name without numbers or special characters:");
+    if (/^[a-zA-Z]+$/.test(username) && username.length <= 15) {
+      break;
+    } else if (username.length > 15) {
+      alert("Input exceeds maximum length of 15 characters. Please enter a shorter name.");
+    } else {
+      alert("Invalid input. Please enter text only.");
+    }
+  }
+  if (!/^[a-zA-Z]+$/.test(username) || username.length > 15) {
+    return;
   }
 
   document.getElementById("username").innerHTML = username;
