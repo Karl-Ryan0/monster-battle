@@ -164,8 +164,8 @@ table {
         height: 30px;
     }
     #intro {
-        padding: 0;
-        line-height: 1;
+        padding: 2% 2%;
+        line-height: 1.25;
     }
 
     #game {
@@ -180,5 +180,11 @@ table {
     }
     #content {
         min-height: 7em;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .button-container {
+        gap: 8%;
     }
 }
