@@ -41,7 +41,7 @@ vampire: true,
 demon: true,
 }
 
-let monster = "";
+let monster;
 let monsterName = "Dragon"
 let username;
 let potion = 3;
@@ -305,7 +305,6 @@ function rollTheDiceStats() {
   player.magicPower += dice;
   player.defence += dice;
   buttonsToggle();
-
   document.getElementById("player-stats").innerHTML = "";
   document.getElementById("enemy-stats").innerHTML = "";
   document.getElementById("content").innerHTML = `You rolled a ${dice}! Your stats have increased.`;
@@ -387,7 +386,7 @@ function getStarted() {
   document.getElementById("difficulty").remove();
   username = window.prompt("Enter your name:");
   document.getElementById("username").innerHTML = username;
-  monster = "dragon";
+  monster = dragon;
   let gameArea = document.getElementById("game");
   let playArea = document.createElement("p");
   playArea.id = "content";
@@ -449,6 +448,7 @@ function victory() {
     <td> Double Defence</td> 
     </tr>
     </table>`;
+    buttonsToggle();
     let parentDiv = document.getElementById("button-container");
     let elements = parentDiv.querySelectorAll(".button");
     for (let i = 0; i < elements.length; i++) {
@@ -548,13 +548,9 @@ player.HP = 0;
 }
 
 function buttonsToggle() {
-if (document.getElementById("attackButton").style.visibility === "visible") {
-  document.getElementById("attackButton").style.visibility = "hidden";
-  document.getElementById("magicButton").style.visibility = "hidden";
-  document.getElementById("potionButton").style.visibility = "hidden";
+if (document.getElementById("button-container").style.visibility === "visible") {
+  document.getElementById("button-container").style.visibility = "hidden";
 } else {
-  document.getElementById("attackButton").style.visibility = "visible";
-  document.getElementById("magicButton").style.visibility = "visible";
-  document.getElementById("potionButton").style.visibility = "visible";
+  document.getElementById("button-container").style.visibility = "visible";
 }
 }
