@@ -234,6 +234,9 @@ table {
         background-repeat: no-repeat;
         background-position: center top;
     }
+    img{
+        height: 100%;
+    }
     #game {
         margin: 0;
         padding: 0;
