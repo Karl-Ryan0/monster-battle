@@ -248,3 +248,24 @@ table {
         width: 110px;
     }
 }
+
+@media only screen and (max-width: 321px) and (max-width: 481px) {
+    body {
+        overflow: hidden;
+    }
+    #intro, #padding, #content, #stats {
+        font-size: medium;
+        line-height: 1;
+        padding: 1%;
+    }
+    td > img {
+        width: 15%;
+    }
+    h1 {
+        margin: 1px;
+    }
+
+    #content {
+        min-height: 10.5em;
+    }
+}
