@@ -29,7 +29,7 @@ defence: 5,
 let demon = {
 HP: 170,
 MP: 70,
-attackPower: 100,
+attackPower: 10,
 maxHP: 130,
 magicPower: 10,
 defence: 8,
@@ -41,7 +41,7 @@ vampire: true,
 demon: true,
 }
 
-let monster;
+let monster = dragon;
 let monsterName = "Dragon"
 let username;
 let potion = 3;
@@ -92,23 +92,17 @@ function attack () {
   }
 }
 
-function monsterAttack(monster) {
-  switch (monster) {
-    case 'dragon':
-      dragonAttack();
-      break;
-    case 'vampire':
+function monsterAttack() {
+  switch (monsterName) {
+    case "Vampire":
       vampireAttack();
       break;
-      case 'demon':
+      case "Demon":
         demonAttack();
+      break;
     default:
-      throw new Error('Invalid monster');
-  }
-  try {
-    monsterAttack('dragon'); // Call monsterAttack function with 'dragon' argument
-  } catch (error) {
-    console.error(error.message); // Handle the error by logging the error message
+      dragonAttack();
+      break;
   }
 }
 
@@ -232,7 +226,7 @@ function demonAttack() {
     } else {
       setTimeout(() => {
         document.getElementById("content").innerHTML = `${attackDamage} damage done to player, ${player.HP} HP remains.`;
-        buttonsToggle();;
+        buttonsToggle();
       }, 3000);
     }
   }, 3000);
@@ -336,7 +330,7 @@ function rollTheDiceStats() {
   for (let stats in monster) {
       document.getElementById("enemy-stats").innerHTML += `${stats}: ${monster[stats]}<br>`;
     }
-    document.getElementById("content").innerHTML += `<br>Above are buttons for attack, magic and potion. Your new stats are below.`;
+    document.getElementById("content").innerHTML += `<br>Below are buttons for attack, magic and potion. Your new stats are below.`;
 }
 
 function rollForBonus(){
@@ -406,7 +400,7 @@ function getStarted() {
   }*/
 
   document.getElementById("username").innerHTML = username;
-  monster = dragon;
+  monster === dragon;
   let gameArea = document.getElementById("game");
   let playArea = document.createElement("p");
   playArea.id = "content";
@@ -512,16 +506,15 @@ if (alive.dragon === true) {
   monster = vampire;
   monsterName = "Vampire"
   document.getElementById("enemy-name").innerHTML = monsterName;
-next();
 } else if (alive.dragon === false && alive.vampire === true) {
   alive.vampire = false;
   monster = demon;
   monsterName = "Demon"
   document.getElementById("enemy-name").innerHTML = monsterName;
-  next();
 } else if (alive.vampire === false && alive.demon === true) {
   alive.demon = false;
 }
+  next();
 }
 
 function next(){
