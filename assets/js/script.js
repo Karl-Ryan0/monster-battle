@@ -206,7 +206,7 @@ function vampireAttack() {
 }
 
 /**
- * This is the vampire attack pattern.
+ * This is the demon attack pattern.
  */
 function demonAttack() {
   setTimeout(() => {

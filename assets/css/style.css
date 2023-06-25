@@ -10,13 +10,7 @@ body {
     border-radius: 20px;
 }
 
-/* Styling for italic elements */
-i{
-    color: black;
-    font-size: large;
-}
-
-/* Styling for the logo */
+/* This will keep the logo image centered*/
 #logo {
     display: flex;
 }
@@ -35,6 +29,14 @@ p {
     gap: 15%;
     flex-direction: row;
     flex-wrap: wrap;
+}
+
+/* This unifies styling for the main areas*/
+.button, #content, #stats, #intro, #inputDialog {
+    color: royalblue;
+    background-color: peachpuff;
+    border: 1px solid royalblue;
+    border-radius: 20px;
 }
 
 /* Styling for buttons */
@@ -102,6 +104,24 @@ td > img {
     margin-right: auto;
     width: 20%;
 }
+/* Styling to move the doce button down*/
+#rollTheDice {
+    margin-top: 5%;
+}
+
+/*Styling to make the bonus options appealing*/
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*Styling to make the play button in the right place*/
+#playButton {
+    position: sticky;
+    left: 10%;
+    height: 30px;
+    width: 30px;
+}
 
 /* Styling for the stats container */
 #stats {
@@ -119,7 +139,7 @@ td > img {
     font-weight: bolder;
 }
 
-/* Styling for the input dialog container */
+/*Styling to make the username request fit with pattern*/
 #inputDialog {
     height: 40px;
     place-items: center;
@@ -127,7 +147,7 @@ td > img {
     padding-top: 2%;
 }
 
-/* Media query for screens with minimum width of 650px */
+/* Media query for slightly larger screens*/
 @media screen and (min-width: 650px) {
     body {
         background: url(../images/background.png);
@@ -135,51 +155,44 @@ td > img {
     }
 }
 
-/* Media query for screens with minimum width of 650px and portrait orientation */
+/* As above but to handle portrait orientation */
 @media screen and (min-width: 650px) and (orientation: portrait) {
 
     .button-container > button, #content > button, #content > img {
         width: 90px;
         height: 90px;
     }
-
     td > img {
         width: 30%;
     }
-
     #stats {
         margin: 5%;
         padding: 2%;
         font-size: larger;
     }
-
     #content {
         font-size: larger;
         min-height: 15.5em;
         padding: 10px;
     }
-
-    #intro {
+    #intro{
         margin: 10% 5%;
         font-size: larger;
     }
 }
 
-/* Media query for screens with maximum width of 767px and landscape orientation */
+/*Media query to handle smaller screens in landscape orientation*/
 @media only screen and (max-width: 767px) and (orientation: landscape) {
     img {
         margin-top: 0;
         width: 70%;
     }
-
     #content > img {
         width: 40px;
     }
-
     #logo > img {
         height: 30px;
     }
-
     #intro {
         padding: 2% 2%;
         line-height: 1.25;
@@ -188,20 +201,16 @@ td > img {
     #game {
         margin: 0;
     }
-
     .button {
         margin-top: 0;
         height: 45px;
     }
-
     h1 {
         margin: 3px;
     }
-
     #content {
         min-height: 7em;
     }
-
     #stats {
         border-radius: 10px;
         line-height: 18px;
@@ -210,35 +219,31 @@ td > img {
     }
 }
 
-/* Media query for screens with maximum width of 400px */
+/* Small query to stop buttons overlapping on small screens*/
 @media only screen and (max-width: 400px) {
     .button-container {
         gap: 8%;
     }
 }
 
-/* Media query for screens with minimum width of 1366px and minimum height of 768px */
+/* Media query to handle large screens*/
 @media only screen and (min-width: 1366px) and (min-height: 768px) {
-    #stats, #intro, #content {
+    #stats, #intro, #content{
         margin: 1% 15%;
         padding: 2%;
     }
-
-    body {
+    body{
         background-size: 85%;
         background-repeat: no-repeat;
         background-position: center top;
     }
-
-    img {
+    img{
         height: 100%;
     }
-
     #game {
         margin: 0;
         padding: 0;
     }
-
     .button {
         margin-top: 0;
         height: 90px;
@@ -250,22 +255,19 @@ td > img {
     }
 }
 
-/* Media query for screens with maximum width of 321px and maximum height of 481px */
+/* Media query to handle smallest screens*/
 @media only screen and (max-width: 321px) and (max-width: 481px) {
     body {
         overflow: hidden;
     }
-
     #intro, #padding, #content, #stats {
         font-size: medium;
         line-height: 1;
         padding: 1%;
     }
-
     td > img {
         width: 15%;
     }
-
     h1 {
         margin: 1px;
     }
