@@ -60,6 +60,20 @@ After several trial and error attempts I decided on Aliceblue text and boundarie
 * Input will check for player name, and use it in the stats area.
 * Screens with larger displays will have larger borders to keep the game and action areas relatively high.
 
+### Screen Size Handling
+* Media queries used to handle screen size and orientation. JavaScript will catch horizontal displays and add content accordingly: <br>
+![](assets/images/stats-vertical.png)   
+
+![](assets/images/stats-horizontal.png)   
+
+![](assets/images/small-vertical.png)   
+
+![](assets/images/small-horizontal.png)
+
+* And on larger screens:
+
+![](assets/images/large.png)
+
 ## Technologies Used
 * HTML
 * CSS
