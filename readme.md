@@ -101,6 +101,7 @@ After several trial and error attempts I decided on Aliceblue text and boundarie
 * Mashing the potion button repeatedly on full health will occasionally cause the monster to attack out of turn. Unresolved, perhaps the dragon doesn't have patience.
 * JavaScript is used to detect orientation of the screen, but if rotated after this check it can cause the layout to break.
 * Monsters can use magic regardless of MP remaining, did not include a check for this.
+* Action buttons could be used repeatedly, this was resolved by removing the buttons accordingly.
 
 
 ### Deployment

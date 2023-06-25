@@ -67,6 +67,10 @@ normal.addEventListener('click', normalMode);
 let hard = document.getElementById('hard-mode');
 hard.addEventListener('click', hardMode);
 
+
+/**
+ * This is the player attack. It uses player stats and an element of randomness to determine the damage.
+ */
 function attack () {
   buttonsToggle();
   let attackDamage = Math.floor(Math.random() * 10 + 1) + player.attackPower - monster.defence;
@@ -92,6 +96,9 @@ function attack () {
   }
 }
 
+/**
+ * This is a check to see what the monster is, and call the appropriate function.
+ */
 function monsterAttack() {
   switch (monsterName) {
     case "Vampire":
@@ -106,7 +113,9 @@ function monsterAttack() {
   }
 }
 
-
+/**
+ * This is the dragon attack pattern.
+ */
 function dragonAttack() {
   setTimeout(() => {
     let attackDamage = Math.floor(Math.random() * 10) + monster.attackPower;
@@ -147,7 +156,9 @@ function dragonAttack() {
   }, 3000);
 }
 
-
+/**
+ * This is the vampire attack pattern.
+ */
 function vampireAttack() {
   setTimeout(() => {
     let attackDamage = Math.floor(Math.random() * 10) + monster.attackPower;
@@ -194,6 +205,9 @@ function vampireAttack() {
   }, 3000);
 }
 
+/**
+ * This is the vampire attack pattern.
+ */
 function demonAttack() {
   setTimeout(() => {
     let attackDamage = Math.floor(Math.random() * 10) + monster.attackPower;
@@ -237,7 +251,9 @@ function demonAttack() {
     }
   }, 3000);
 }
-
+/**
+ * This is the function that is called when the player casts magic. It will check for available MP and then damage is based on the players magic power plus an element of randomness.
+ */
 function magicAttack () {
   buttonsToggle();
   if (player.MP <= 0) {
@@ -268,7 +284,9 @@ function magicAttack () {
   monsterAttack();
   }}
 }
-
+/**
+ * This function allows the player to restore some HP. It will vary based on current HP and is limited to 3 per game.
+ */
 function takePotion () {
   if (player.HP === player.maxHP){
       document.getElementById("content").innerHTML = ('You have full HP!')
@@ -296,6 +314,9 @@ function takePotion () {
     }
 }
 
+/**
+ * This adds an extra element of randomness to the game, it will allow the player to roll for extra stats at the start, making the game easier or harder depending on the result.
+ */
 function rollTheDiceStats() {
   document.getElementById("content").innerHTML = player;
   let dice = Math.floor(Math.random() * 6 + 1);
@@ -340,6 +361,9 @@ function rollTheDiceStats() {
     document.getElementById("content").innerHTML += `<br>Below are buttons for attack, magic and potion. Your new stats are below.`;
 }
 
+/**
+ * This happens between monsters, adding a random bonus to the player character.
+ */
 function rollForBonus(){
   let dice = Math.floor(Math.random() * 6 + 1);
   document.getElementById("content").innerHTML = `You rolled a ${dice}!`;
@@ -390,22 +414,10 @@ function rollForBonus(){
     parentElement.innerHTML += buttonHTML;
 }
 
+/**
+ * This function changes some of the play area, and reveals the player and monster stats.
+ */
 function getStarted() {
-  /*while (true) {
-    username = window.prompt("Enter your name:");
-
-    if (/^[a-zA-Z]+$/.test(username) && username.length <= 15) {
-      break;
-    } else if (username.length > 15) {
-      alert("Input exceeds maximum length of 15 characters. Please enter a shorter name.");
-    } else {
-      alert("Invalid input. Please enter text only.");
-    }
-  }
-  if (!/^[a-zA-Z]+$/.test(username) || username.length > 15) {
-    return;
-  }*/
-
   document.getElementById("username").innerHTML = username;
   monster === dragon;
   let gameArea = document.getElementById("game");
@@ -425,6 +437,9 @@ function getStarted() {
     document.getElementById("rollTheDice").addEventListener("click", rollTheDiceStats);
 }
 
+/**
+ * Simple function to play or stop background music.
+ */
 playButton.addEventListener('click', function() {
   if (music.paused) {
     music.play();
@@ -435,6 +450,10 @@ playButton.addEventListener('click', function() {
   }
 });
 
+/**
+ * This is called when a monster is defeated, and will show what the possible bonuses are.
+ * There is an embedded check for screen orientation and the layout of the bonuses will respond accordingly.
+ */
 function victory() {
   monster.HP = 0;
   document.getElementById("enemy-stats").innerHTML = "";
@@ -505,6 +524,9 @@ function victory() {
   }
 }
 
+/**
+ * This function will determine what point in the game the user is at and call the next monster.
+ */
 function nextMonster() {
 let removeElement = document.getElementById("nextMonster");
 removeElement.remove();
@@ -524,6 +546,9 @@ if (alive.dragon === true) {
   next();
 }
 
+/**
+ * This function will prepare the game area for play.
+ */
 function next(){
 document.getElementById("content").innerHTML = `Get ready to fight the ${monsterName}!`;
 document.getElementById("enemy-stats").innerHTML = "";
@@ -541,12 +566,18 @@ for (let stats in monster) {
   }
 }
 
+/**
+ * This a simple function for when the player wins.
+ */
 function completeVictory() {
 document.getElementById("content").innerHTML = ""
 alert("You win!");
 location.reload();
 }
 
+/**
+ * The following 3 functions will adjust the monster stats based on difficulty selection.
+ */
 function easyMode() {
 for (let key in dragon) {
   dragon[key] = Math.floor(dragon[key] * 0.8);
@@ -577,6 +608,9 @@ for (let key in demon) {
 nameEntry();
 }
 
+/**
+ * This is called when the player is defeated.
+ */
 function gameOver() {
 player.HP = 0;
       document.getElementById("player-stats").innerHTML = "";
@@ -589,6 +623,9 @@ player.HP = 0;
       }, 3000);
 }
 
+/**
+ * This is to hide the action buttons when it's the monster's turn.
+ */
 function buttonsToggle() {
 if (document.getElementById("button-container").style.visibility === "visible") {
   document.getElementById("button-container").style.visibility = "hidden";
@@ -597,6 +634,9 @@ if (document.getElementById("button-container").style.visibility === "visible") 
 }
 }
 
+/**
+ * This will collect username information for use in the stat box.
+ */
 function nameEntry() {
   document.getElementById("difficulty").remove();
   
