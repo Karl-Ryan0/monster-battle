@@ -117,16 +117,14 @@ function dragonAttack() {
     } else {
       if (attackType === 0) {
         document.getElementById("content").innerHTML = "Dragon breathes fire!";
-        document.getElementById("content").innerHTML += `<br><img src="assets/images/fire.png" alt="Fire">`;
         attackDamage = attackDamage + 20;
-      } else if (attackType === 1) {
+      } else if (attackType === 1 && monster.MP >= 10) {
         document.getElementById("content").innerHTML = `Dragon casts magic!`;
         document.getElementById("content").innerHTML += `<br><img src="assets/images/magic.png" alt="Magic">`;
         attackDamage = attackDamage + 15;
         monster.MP = monster.MP - 10;
       } else {
         document.getElementById("content").innerHTML = "Dragon attacks!";
-        document.getElementById("content").innerHTML += `<br><img src="assets/images/monsterAttack.png" alt="Attack">`;
       }
       player.HP = player.HP - (attackDamage - player.defence);
       document.getElementById("player-stats").innerHTML = "";
@@ -149,6 +147,7 @@ function dragonAttack() {
   }, 3000);
 }
 
+
 function vampireAttack() {
   setTimeout(() => {
     let attackDamage = Math.floor(Math.random() * 10) + monster.attackPower;
@@ -163,7 +162,7 @@ function vampireAttack() {
         monster.HP += attackDamage;
         document.getElementById("content").innerHTML = `Vampire drinks your blood, and regains ${attackDamage} points of health!`;
         document.getElementById("content").innerHTML += `<br><img src="assets/images/blood.png" alt="Magic">`;
-      } else if (attackType === 1) {
+      } else if (attackType === 1 && monster.MP >= 10) {
         document.getElementById("content").innerHTML = `Vampire casts magic!`;
         document.getElementById("content").innerHTML += `<br><img src="assets/images/magic.png" alt="Magic">`;
         attackDamage = attackDamage + 15;
@@ -209,7 +208,7 @@ function demonAttack() {
         document.getElementById("content").innerHTML = "Demon uses hellfire!";
         document.getElementById("content").innerHTML += `<br><img src="assets/images/fire.png" alt="Fire">`;
         attackDamage = attackDamage + 20;
-      } else if (attackType === 1) {
+      } else if (attackType === 1 && monster.MP >= 10) {
         document.getElementById("content").innerHTML = `Demon casts magic!`;
         document.getElementById("content").innerHTML += `<br><img src="assets/images/magic.png" alt="Magic">`;
         attackDamage = attackDamage + 15;
