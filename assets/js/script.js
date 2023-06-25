@@ -5,7 +5,7 @@ let player = {
   maxHP: 100,
   magicPower: 8,
   defence: 6,
-  maxMP: 1000,
+  maxMP: 100,
 }
 
 let dragon = {
