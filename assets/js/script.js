@@ -1,15 +1,15 @@
 let player = {
-  HP: 100000,
+  HP: 100,
   MP: 100,
   attackPower: 6,
   maxHP: 100,
-  magicPower: 800,
+  magicPower: 8,
   defence: 6,
   maxMP: 1000,
 }
 
 let dragon = {
-  HP: 13000,
+  HP: 130,
   MP: 70,
   attackPower: 10,
   maxHP: 130,

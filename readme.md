@@ -26,7 +26,7 @@ Users are able to:
 ## Features
 
 ### Main page
-![Main page]()
+![Main page](assets/images/home.png)
 Features:
 - There is only one page and all the action takes place here.
 - There is a brief tutorial on how to play the game.
