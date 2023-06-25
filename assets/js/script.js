@@ -1,5 +1,5 @@
 let player = {
-  HP: 100,
+  HP: 100000,
   MP: 100,
   attackPower: 6,
   maxHP: 100,
@@ -9,7 +9,7 @@ let player = {
 }
 
 let dragon = {
-  HP: 130,
+  HP: 13000,
   MP: 70,
   attackPower: 10,
   maxHP: 130,
@@ -76,7 +76,7 @@ function attack () {
   } else {
       monster.HP = monster.HP - attackDamage;
   }
-  document.getElementById("content").innerHTML = (`${attackDamage} Attack damage done to enemy, ${monster.HP} HP remains.`);
+  document.getElementById("content").innerHTML = (`${attackDamage} Attack damage done to enemy, ${monster.HP} HP remains. <br><img src="assets/images/attack.png" alt="Attack">`);
   document.getElementById("player-stats").innerHTML = "";
   document.getElementById("enemy-stats").innerHTML = "";
   for (let stats in player) {
@@ -117,6 +117,7 @@ function dragonAttack() {
     } else {
       if (attackType === 0) {
         document.getElementById("content").innerHTML = "Dragon breathes fire!";
+        document.getElementById("content").innerHTML += `<br><img src="assets/images/fire.png" alt="Fire">`;
         attackDamage = attackDamage + 20;
       } else if (attackType === 1) {
         document.getElementById("content").innerHTML = `Dragon casts magic!`;
@@ -125,6 +126,7 @@ function dragonAttack() {
         monster.MP = monster.MP - 10;
       } else {
         document.getElementById("content").innerHTML = "Dragon attacks!";
+        document.getElementById("content").innerHTML += `<br><img src="assets/images/monsterAttack.png" alt="Attack">`;
       }
       player.HP = player.HP - (attackDamage - player.defence);
       document.getElementById("player-stats").innerHTML = "";
@@ -160,6 +162,7 @@ function vampireAttack() {
         attackDamage = attackDamage + 10;
         monster.HP += attackDamage;
         document.getElementById("content").innerHTML = `Vampire drinks your blood, and regains ${attackDamage} points of health!`;
+        document.getElementById("content").innerHTML += `<br><img src="assets/images/blood.png" alt="Magic">`;
       } else if (attackType === 1) {
         document.getElementById("content").innerHTML = `Vampire casts magic!`;
         document.getElementById("content").innerHTML += `<br><img src="assets/images/magic.png" alt="Magic">`;
@@ -167,6 +170,8 @@ function vampireAttack() {
         monster.MP = monster.MP - 10;
       } else {
         document.getElementById("content").innerHTML = "Vampire attacks!";
+        document.getElementById("content").innerHTML += `<br><img src="assets/images/monsterAttack.png" alt="Attack">`;
+
       }
       player.HP = player.HP - (attackDamage - player.defence);
       document.getElementById("player-stats").innerHTML = "";
@@ -197,10 +202,12 @@ function demonAttack() {
 
     if (Math.floor(Math.random() * 10 < 2)) {
       document.getElementById("content").innerHTML = "Enemy missed!";
+      document.getElementById("content").innerHTML += `<br><img src="assets/images/monsterAttack.png" alt="Attack">`;
       attackDamage = 0;
     } else {
       if (attackType === 0) {
         document.getElementById("content").innerHTML = "Demon uses hellfire!";
+        document.getElementById("content").innerHTML += `<br><img src="assets/images/fire.png" alt="Fire">`;
         attackDamage = attackDamage + 20;
       } else if (attackType === 1) {
         document.getElementById("content").innerHTML = `Demon casts magic!`;
@@ -246,7 +253,8 @@ function magicAttack () {
       monster.HP = monster.HP - attackDamage;
   }
   player.MP = player.MP - 10;
-  document.getElementById("content").innerHTML = (`${attackDamage} Magic damage done to enemy, ${monster.HP} HP remains. You have ${player.MP} MP remaining.`);
+    document.getElementById("content").innerHTML = (`${attackDamage} Attack damage done to enemy, ${monster.HP} HP remains. <br><img src="assets/images/attack.png" alt="Attack">`);
+  document.getElementById("content").innerHTML = (`${attackDamage} Magic damage done to enemy, ${monster.HP} HP remains. You have ${player.MP} MP remaining. <br><img src="assets/images/magic.png" alt="Magic">`);
   document.getElementById("player-stats").innerHTML = "";
   document.getElementById("enemy-stats").innerHTML = "";
   for (let stats in player) {
