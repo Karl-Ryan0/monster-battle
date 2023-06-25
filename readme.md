@@ -1,5 +1,5 @@
 ![Monster Battle Logo](assets/images/logo.png)
-![Responsive Design Images]()
+![Responsive Design Images](assets/images/responsiveness.png)
 
 Monster Battle is a small minigame based on RPG game battle mechanics. The user will fight some different monsters and hopefully win a chain of battles.
 
